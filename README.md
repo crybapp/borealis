@@ -28,9 +28,9 @@ The codebase for `@cryb/borealis` is written in Sass.
 ### Folder Structure
 ```
 cryb/borealis/
-├──┐ src # The core source code
-│  ├── components # Config files for Redis, Passport, etc
-│  └── utils # Static 
+├──┐ src # Uncompiled Sass
+│  ├── components # Buttons, boxes, etc
+│  └── utils # Static variables
 ├─── dist # Compiled CSS
 └──┐ examples # Pages to test compiled CSS
    └── assets # Assets for example pages
