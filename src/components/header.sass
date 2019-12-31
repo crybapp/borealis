@@ -5,9 +5,9 @@ div.header
     top: 0
     left: 0
     width: 100%
-    height: 32px
+    height: $headerHeight
 
-    padding: 16px
+    padding: $headerPadding
 
     background-color: $primary
 
@@ -21,9 +21,21 @@ div.header
 
     div.left, div.right
         position: fixed
+        display: flex
+
+        height: $headerHeight
+
+        flex-direction: row
 
     div.left
         left: $headerPadding
+
+        h1.header-title
+            margin: 0
+            margin-left: 0.65em
+
+            font-size: 27px
+            font-weight: 500
 
     div.right
         right: $headerPadding
@@ -32,13 +44,11 @@ div.header
             right: $headerPadding
 
     img.logo
-        position: absolute
-
         width: 39px
 
     img.profile-image
         width: 32px
-        height: 32px
+        height: £headerHeight
 
         cursor: pointer
 

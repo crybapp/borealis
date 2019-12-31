@@ -1,0 +1,20 @@
+html, body
+    background-color: $primary
+
+    @media screen and (prefers-color-scheme: dark)
+        background-color: $secondary
+    
+a
+    color: $secondary
+
+    opacity: .65
+
+    text-decoration: none
+
+    transition: opacity $softTransition
+
+    &:hover
+        opacity: 1
+
+    @media screen and (prefers-color-scheme: dark)
+        color: $primary

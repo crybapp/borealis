@@ -3,9 +3,7 @@ div.menu-wrapper
         position: fixed
 
         top: 0
-
         width: 150px
-        height: 200px
 
         overflow-x: hidden
         overflow-y: auto
@@ -17,6 +15,49 @@ div.menu-wrapper
 
         opacity: 0
         pointer-events: none
+
+        div.menu-section
+            &:not(:last-child)
+                border-bottom: rgba(112, 128, 144, 0.5) 1.5px solid
+
+        div.menu-option-wrapper
+            div.menu-option
+                padding: 0.8em
+
+                border-bottom: $primaryBorder
+
+                transition: background-color $softTransition
+
+                cursor: default
+                
+                &:not(.disabled):hover
+                    cursor: pointer
+                    background-color: $primaryHover
+
+                &.has-icon
+                    display: flex
+
+                    p.menu-option-content
+                        margin-left: 8px
+
+                img.menu-option-icon
+                    @media screen and (prefers-color-scheme: dark)
+                        filter: invert(1)
+
+                p.menu-option-content
+                    margin: 0
+                    padding: 0
+
+                    &.menu-option-title
+                        font-size: 18px
+                        font-weight: bold
+
+                @media screen and (prefers-color-scheme: dark)
+                    &:not(.disabled):hover
+                        background-color: $secondaryHover
+
+            &:last-child > div.menu-option
+                border-bottom: none
 
         @media screen and (prefers-color-scheme: dark)
             background-color: $secondary
