@@ -1,0 +1,18 @@
+div.box
+    background-color: $primary
+
+    box-shadow: $primaryOutline
+    border-radius: $borderRadius
+
+    transition: $softTransition
+
+    &:hover
+        background-color: $primaryHover
+        box-shadow: $primaryOutlineHover
+
+    @media screen and (prefers-color-scheme: dark)
+        background-color: $secondary
+
+        &:hover
+            background-color: $secondaryHover
+            box-shadow: $secondaryOutlineHover

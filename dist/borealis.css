@@ -1,0 +1,213 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: black;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    color: white;
+  }
+}
+
+h1.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+p.subtitle {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h3.header {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+p.description {
+  color: black;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  p.description {
+    color: white;
+  }
+}
+
+div.header {
+  position: fixed;
+  display: -webkit-box;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+  padding: 16px;
+  background-color: white;
+  border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  z-index: 9997;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.header {
+    background-color: black;
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+div.header div.left, div.header div.right {
+  position: fixed;
+}
+
+div.header div.left {
+  left: 16px;
+}
+
+div.header div.right {
+  right: 16px;
+}
+
+div.header div.right div.menu {
+  right: 16px;
+}
+
+div.header img.logo {
+  position: absolute;
+  width: 39px;
+}
+
+div.header img.profile-image {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+div.content {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+div.content.is-centre, div.content.is-center {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+div.content.no-header {
+  top: 0;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.content {
+    background-color: black;
+  }
+}
+
+div.box {
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(112, 128, 144, 0.25);
+  border-radius: 10px;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+div.box:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(112, 128, 144, 0.25);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.box {
+    background-color: black;
+  }
+  div.box:hover {
+    background-color: #111111;
+    box-shadow: 0 0 10px #00000017;
+  }
+}
+
+div.options {
+  display: -webkit-box;
+  display: flex;
+}
+
+div.options .option:not(:last-child) {
+  margin-right: 2em;
+}
+
+div.box.option {
+  width: 14em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2em;
+}
+
+div.box.option img.icon {
+  height: 40px;
+  margin-bottom: 1em;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.box.option img.icon {
+    -webkit-filter: invert(1);
+            filter: invert(1);
+  }
+}
+
+div.menu-wrapper div.menu {
+  position: fixed;
+  top: 0;
+  width: 150px;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(112, 128, 144, 0.25);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.menu-wrapper div.menu {
+    background-color: black;
+    box-shadow: 0 0 0 1px rgba(112, 128, 144, 0.25);
+  }
+}
+
+div.menu-wrapper div.menu-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  z-index: -1;
+}
+
+div.menu-wrapper.visible div.menu {
+  top: 60px;
+  opacity: 1;
+  pointer-events: all;
+}
+
+div.menu-wrapper.visible div.menu-cover {
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 1;
+  pointer-events: all;
+}
+/*# sourceMappingURL=borealis.css.map */
