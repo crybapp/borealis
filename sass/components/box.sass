@@ -1,0 +1,39 @@
+div.box
+	width: fit-content
+	height: fit-content
+
+	background-color: $primary
+
+	box-shadow: $primaryOutline
+	border-radius: $borderRadius
+
+	transition: $softTransition
+
+	&.is-hoverable
+		cursor: pointer
+
+		-webkit-touch-callout: none
+		-webkit-user-select: none
+		-khtml-user-select: none
+		-moz-user-select: none
+		-ms-user-select: none
+		user-select: none
+
+	&.is-hoverable:hover
+		box-shadow: $primaryOutlineHover
+
+	@media screen and (prefers-color-scheme: dark)
+		background-color: $secondary
+
+		&.is-hoverable:hover
+			box-shadow: $secondaryOutlineHover
+
+div.list
+	position: static
+
+	bottom: 0
+	height: 100%
+
+	div.box
+		&:not(:last-child)
+			margin-bottom: 1em

@@ -4,7 +4,7 @@ html, body
     @media screen and (prefers-color-scheme: dark)
         background-color: $secondary
     
-a
+a:not(.is-wrapper)
     color: $secondary
 
     opacity: .65
@@ -18,3 +18,10 @@ a
 
     @media screen and (prefers-color-scheme: dark)
         color: $primary
+
+img:not(.draggable)
+	-webkit-user-drag: none
+	-khtml-user-drag: none
+	-moz-user-drag: none
+	-o-user-drag: none
+	user-drag: none

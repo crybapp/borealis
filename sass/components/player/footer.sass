@@ -1,0 +1,160 @@
+div.player-footer
+	position: absolute
+
+	left: 0
+	bottom: 0
+	width: $playerWidth
+	height: $playerFooterHeight
+
+	border-top: $primaryBorder
+
+	overflow: none
+	overflow-x: auto
+	overflow-y: hidden
+
+	div.user-icons
+		display: flex
+
+		width: fit-content
+
+		padding: 40px
+		margin: auto
+
+		align-items: center
+		justify-content: stretch
+
+		div.user-icon
+			width: $userIconSize
+			height: $userIconSize
+
+			border-radius: 50%
+
+			&.passable
+				cursor: pointer
+				box-shadow: 0 0 0 0px black
+
+				transition: box-shadow 0.2s ease-in-out
+
+				&:hover
+					box-shadow: 0 0 0 5px white
+
+			&.offline
+				img.user-icon-avatar
+					opacity: 0.25
+
+					filter: grayscale(100%)
+					-webkit-filter: grayscale(100%)
+
+			&:not(:last-child)
+				margin-right: 1.5em
+
+			&.has-control
+				div.user-control-indicator
+					transform: scale(1)
+
+			img.user-icon-avatar
+				height: 100%
+
+				border-radius: 50%
+
+			&:not(.has-control):hover
+				div.user-name-wrapper
+					bottom: 2.15em
+
+					opacity: 1
+
+			div.user-name-wrapper
+				position: absolute
+
+				width: 100px
+				bottom: 1.5em
+
+				margin: 0
+				box-shadow: 0 0 0px 5px $primary
+
+				font-weight: bold
+				text-align: center
+				border-radius: 50px
+
+				opacity: 0
+				background-color: $secondary
+
+				transition: $softBounceTransition
+
+				p.user-name
+					margin: 6px
+					color: $primary
+
+					cursor: default
+
+					@media screen and (prefers-color-scheme: dark)
+						color: $secondary
+
+				@media screen and (prefers-color-scheme: dark)
+					background-color: $primary
+
+					box-shadow: 0 0 0px 5px $secondary
+
+			div.user-control-indicator
+				position: absolute
+				display: flex
+
+				width: 40px
+				height: 40px
+				bottom: 2.15em
+
+				margin-left: 60px
+				border-radius: 50%
+
+				background-color: $primary
+
+				box-shadow: 0 0 0px 6px black
+				
+				align-items: center
+				
+				transform: scale(0)
+				
+				justify-content: center
+				transition: transform $softBounceTransition
+
+				img.user-control-icon
+					height: 23px
+					transition: $softTransitionLong
+
+					&.remove-control
+						height: 0
+
+						opacity: 0
+
+				&.is-interactable
+					cursor: pointer
+
+					&:hover
+						img.user-control-icon
+							&.has-control
+								height: 0px
+
+								opacity: 0
+
+							&.remove-control
+								height: 23px
+
+								opacity: 1
+
+		div.invite-hint
+			height: fit-content
+
+			max-width: 20em
+
+			margin-left: .5em
+
+			h3.invite-hint-title
+				margin: 0
+				margin-bottom: 0.55em
+
+			p.invite-hint-subtitle
+				margin: 0
+				margin-bottom: 0
+
+	@media screen and (prefers-color-scheme: dark)
+		border-top: $secondaryBorder

@@ -19,6 +19,67 @@
   }
 }
 
+.is-fullwidth:not(.has-content) {
+  width: 100% !important;
+}
+
+.has-content {
+  padding: 1.5em;
+}
+
+.has-content.is-fullwidth {
+  width: calc(100% - 3em);
+}
+
+div.content.has-content {
+  width: calc(100% - 12em);
+  padding: 3em 6em;
+}
+
+div.columns {
+  display: -webkit-box;
+  display: flex;
+}
+
+div.columns div.column.is-side {
+  width: 50%;
+}
+
+div.columns div.column:not(:last-child) {
+  margin-right: 3em;
+}
+
+.loading {
+  background: linear-gradient(225deg, red, #d200ff, #0063ff, #00ffc1, #0bff66, #16ff00, #f0ff00, red) !important;
+  background-size: 1600% 1600% !important;
+  -webkit-animation: loadingAnimation 10s ease infinite;
+          animation: loadingAnimation 10s ease infinite;
+}
+
+@-webkit-keyframes loadingAnimation {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: black;
@@ -30,14 +91,21 @@ body {
   }
 }
 
-h1.title {
-  margin-top: 0;
+.title {
   margin-bottom: 10px;
 }
 
-p.subtitle {
+.title:first-child {
+  margin-top: 0;
+}
+
+.subtitle {
   margin-top: 0;
   margin-bottom: 1em;
+}
+
+.subtitle:last-child {
+  margin-bottom: 0;
 }
 
 h3.header {
@@ -128,7 +196,7 @@ html, body {
   }
 }
 
-a {
+a:not(.is-wrapper) {
   color: black;
   opacity: .65;
   text-decoration: none;
@@ -136,14 +204,22 @@ a {
   transition: opacity 0.1s ease-in-out;
 }
 
-a:hover {
+a:not(.is-wrapper):hover {
   opacity: 1;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  a {
+  a:not(.is-wrapper) {
     color: white;
   }
+}
+
+img:not(.draggable) {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 div.content {
@@ -175,6 +251,12 @@ div.content.no-header {
 }
 
 div.box {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: white;
   box-shadow: 0 0 0 1px rgba(112, 128, 144, 0.25);
   border-radius: 10px;
@@ -182,19 +264,36 @@ div.box {
   transition: 0.1s ease-in-out;
 }
 
-div.box:hover {
-  background-color: #f7f7f7;
-  box-shadow: 0 0 10px rgba(112, 128, 144, 0.25);
+div.box.is-hoverable {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+div.box.is-hoverable:hover {
+  box-shadow: 0 0 0px 1px #0e0e0e;
 }
 
 @media screen and (prefers-color-scheme: dark) {
   div.box {
     background-color: black;
   }
-  div.box:hover {
-    background-color: #111111;
-    box-shadow: 0 0 10px #00000017;
+  div.box.is-hoverable:hover {
+    box-shadow: 0 0 0px 1px #a1a1a1;
   }
+}
+
+div.list {
+  position: static;
+  bottom: 0;
+  height: 100%;
+}
+
+div.list div.box:not(:last-child) {
+  margin-bottom: 1em;
 }
 
 div.options {
@@ -346,6 +445,101 @@ div.chat p.chat-no-messages {
   }
 }
 
+div.chat div.grouped-chat-messages-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 80px;
+  width: calc(100% - 2em);
+  padding-left: 1em;
+  padding-right: 1em;
+  overflow-y: auto;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages {
+  display: -webkit-box;
+  display: flex;
+  margin-top: 1.5em;
+  margin-bottom: 2em;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1.05em;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.has-controller {
+  box-shadow: 0 0 0 3px black;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.has-controller {
+    box-shadow: 0 0 0 3px white;
+  }
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages {
+  width: -webkit-fill-available;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message {
+  display: -webkit-box;
+  display: flex;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content {
+  margin: 0;
+  margin-bottom: 0.65em;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options {
+  position: absolute;
+  right: 0px;
+  margin-right: 1.5em;
+  opacity: 0;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option {
+  cursor: pointer;
+  opacity: 0.25;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option:hover {
+  opacity: 0.75;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option:active {
+  opacity: 1;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option {
+    -webkit-filter: invert(1);
+            filter: invert(1);
+  }
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message:hover div.chat-message-options {
+  opacity: 1;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.grouped-chat-messages-meta {
+  margin-bottom: 0.5em;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.grouped-chat-messages-meta p.chat-messages-author-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 div.chat div.chat-bar-wrapper {
   position: absolute;
   left: 0;
@@ -415,8 +609,8 @@ div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
 
 @media screen and (prefers-color-scheme: dark) {
   div.chat div.chat-bar-wrapper div.send-button img.send-button-icon:not(.disabled) {
-    -webkit-filter: invert(0);
-            filter: invert(0);
+    -webkit-filter: invert(0.75);
+            filter: invert(0.75);
   }
 }
 
@@ -494,11 +688,124 @@ div.player-footer div.user-icons div.user-icon {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: red;
+}
+
+div.player-footer div.user-icons div.user-icon.passable {
+  cursor: pointer;
+  box-shadow: 0 0 0 0px black;
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+div.player-footer div.user-icons div.user-icon.passable:hover {
+  box-shadow: 0 0 0 5px white;
+}
+
+div.player-footer div.user-icons div.user-icon.offline img.user-icon-avatar {
+  opacity: 0.25;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 
 div.player-footer div.user-icons div.user-icon:not(:last-child) {
   margin-right: 1.5em;
+}
+
+div.player-footer div.user-icons div.user-icon.has-control div.user-control-indicator {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+div.player-footer div.user-icons div.user-icon img.user-icon-avatar {
+  height: 100%;
+  border-radius: 50%;
+}
+
+div.player-footer div.user-icons div.user-icon:not(.has-control):hover div.user-name-wrapper {
+  bottom: 2.15em;
+  opacity: 1;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
+  position: absolute;
+  width: 100px;
+  bottom: 1.5em;
+  margin: 0;
+  box-shadow: 0 0 0px 5px white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50px;
+  opacity: 0;
+  background-color: black;
+  -webkit-transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name {
+  margin: 6px;
+  color: white;
+  cursor: default;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name {
+    color: black;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
+    background-color: white;
+    box-shadow: 0 0 0px 5px black;
+  }
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator {
+  position: absolute;
+  display: -webkit-box;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  bottom: 2.15em;
+  margin-left: 60px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 0px 6px black;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
+  height: 23px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon.remove-control {
+  height: 0;
+  opacity: 0;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable {
+  cursor: pointer;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable:hover img.user-control-icon.has-control {
+  height: 0px;
+  opacity: 0;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable:hover img.user-control-icon.remove-control {
+  height: 23px;
+  opacity: 1;
 }
 
 div.player-footer div.user-icons div.invite-hint {
