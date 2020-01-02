@@ -1,26 +1,39 @@
 {
-  "name": "@cryb/borealis",
-  "version": "1.0.0",
-  "description": "The official CSS framework for Cryb",
-  "repository": "https://github.com/crybapp/borealis",
-  "author": "William Gibson <william@tired.io>",
-  "license": "MIT",
-  "scripts": {
-    "dev": "nodemon -e sass --ignore dist/ --exec \"yarn build-sass\"",
-    "dev:old": "yarn build-sass --watch",
-
-    "build": "yarn build-clean && yarn build-sass && yarn build-autoprefix && yarn build-cleancss",
-    "build-sass": "node-sass --output-style expanded --source-map true src/_all.sass dist/borealis.css",
-    "build-autoprefix": "postcss --use autoprefixer --map false --output dist/borealis.css dist/borealis.css",
-    "build-cleancss": "cleancss -o dist/borealis.min.css dist/borealis.css",
-    "build-clean": "rimraf dist"
-  },
-  "devDependencies": {
-    "autoprefixer": "^9.6.1",
-    "clean-css-cli": "^4.3.0",
-    "node-sass": "^4.12.0",
-    "nodemon": "^2.0.2",
-    "postcss-cli": "^6.1.3",
-    "rimraf": "^2.7.1"
-  }
+	"name": "@cryb/borealis",
+	"version": "0.0.3",
+	"description": "The official CSS framework for Cryb",
+	"repository": "https://github.com/crybapp/borealis",
+	"author": "William Gibson <william@tired.io>",
+	"license": "MIT",
+	"main": "css/borealis.min.css",
+	"unpkg": "css/borealis.min.css",
+	"scripts": {
+		"dev": "nodemon -e sass --ignore css/ --exec \"yarn build-sass\"",
+		"dev:old": "yarn build-sass --watch",
+		"build": "yarn build-clean && yarn build-sass && yarn build-autoprefix && yarn build-cleancss",
+		"build-sass": "node-sass --output-style expanded --source-map true sass/_all.sass css/borealis.css",
+		"build-autoprefix": "postcss --use autoprefixer --map false --output css/borealis.css css/borealis.css",
+		"build-cleancss": "cleancss -o css/borealis.min.css css/borealis.css",
+		"build-clean": "rimraf css"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn build"
+		}
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.6.1",
+		"clean-css-cli": "^4.3.0",
+		"husky": "^3.1.0",
+		"node-sass": "^4.12.0",
+		"nodemon": "^2.0.2",
+		"postcss-cli": "^6.1.3",
+		"rimraf": "^2.7.1"
+	},
+	"files": [
+		"css",
+		"sass",
+		"LICENSE",
+		"README.md"
+	]
 }
