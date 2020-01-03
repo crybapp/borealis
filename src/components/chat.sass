@@ -55,7 +55,7 @@ div.chat
 
 				div.chat-message
 					display: flex
-					
+
 					p.chat-message-content
 						margin: 0
 
@@ -73,7 +73,7 @@ div.chat
 						img.chat-message-option
 							cursor: pointer
 							opacity: 0.25
-							
+
 							transition: all 0.1s ease-in-out
 
 							&:hover
@@ -87,7 +87,7 @@ div.chat
 
 							@media screen and (prefers-color-scheme: dark)
 								filter: invert(1)
-				
+
 					&:hover
 						div.chat-message-options
 							opacity: 1
@@ -114,8 +114,9 @@ div.chat
 		input.chat-bar
 			position: absolute
 
-			color: white
-			background-color: rgba(0, 0, 0, 0)
+			color: $secondary
+			background-color: $primary
+			// background-color: rgba(0, 0, 0, 0)
 
 			left: 1em
 			right: 2em
@@ -129,6 +130,10 @@ div.chat
 			margin: 0
 
 			font-size: 20px
+
+			@media screen and (prefers-color-scheme: dark)
+				color: $primary
+				background-color: $secondary
 
 		div.send-button
 			position: absolute
@@ -157,6 +162,14 @@ div.chat
 				cursor: not-allowed
 				background-color: $secondaryLight
 
+				img.send-button-icon
+					@media screen and (prefers-color-scheme: dark)
+						filter: invert(0.75)
+
+					// &:not(.disabled)
+					// 	@media screen and (prefers-color-scheme: dark)
+					// 		filter: invert(0.75)
+
 				@media screen and (prefers-color-scheme: dark)
 					background-color: $primaryLight
 
@@ -166,9 +179,8 @@ div.chat
 				margin-bottom: 2.25px
 				filter: invert(1)
 
-				&:not(.disabled)
-					@media screen and (prefers-color-scheme: dark)
-						filter: invert(0.75)
+				@media screen and (prefers-color-scheme: dark)
+					filter: invert(0)
 
 		@media screen and (prefers-color-scheme: dark)
 			border-top: $secondaryBorder

@@ -1,0 +1,55 @@
+div.header
+    position: fixed
+    display: flex
+
+    top: 0
+    left: 0
+    width: 100%
+    height: $headerHeight
+
+    padding: $headerPadding
+
+    background-color: $primary
+
+    border-bottom: $primaryBorder
+
+    z-index: 9997
+
+    @media screen and (prefers-color-scheme: dark)
+        background-color: $secondary
+        border-bottom: $secondaryBorder
+
+    div.left, div.right
+        position: fixed
+        display: flex
+
+        height: $headerHeight
+
+        flex-direction: row
+
+    div.left
+        left: $headerPadding
+
+        h1.header-title
+            margin: 0
+            margin-left: 0.65em
+
+            font-size: 27px
+            font-weight: 500
+
+    div.right
+        right: $headerPadding
+
+        div.menu
+            right: $headerPadding
+
+    img.logo
+        width: 39px
+
+    img.profile-image
+        width: 32px
+        height: £headerHeight
+
+        cursor: pointer
+
+        border-radius: 50%

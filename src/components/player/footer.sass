@@ -36,7 +36,10 @@ div.player-footer
 				transition: box-shadow 0.2s ease-in-out
 
 				&:hover
-					box-shadow: 0 0 0 5px white
+					box-shadow: 0 0 0 5px $secondary
+
+					@media screen and (prefers-color-scheme: dark)
+						box-shadow: 0 0 0 5px $primary
 
 			&.offline
 				img.user-icon-avatar
@@ -106,9 +109,8 @@ div.player-footer
 				margin-left: 60px
 				border-radius: 50%
 
-				background-color: $primary
-
-				box-shadow: 0 0 0px 6px black
+				background-color: $secondary
+				box-shadow: 0 0 0px 6px $primary
 				
 				align-items: center
 				
@@ -119,12 +121,18 @@ div.player-footer
 
 				img.user-control-icon
 					height: 23px
+
+					filter: invert(1)
+
 					transition: $softTransitionLong
 
 					&.remove-control
 						height: 0
 
 						opacity: 0
+
+					@media screen and (prefers-color-scheme: dark)
+						filter: invert(0)
 
 				&.is-interactable
 					cursor: pointer
@@ -140,6 +148,10 @@ div.player-footer
 								height: 23px
 
 								opacity: 1
+
+				@media screen and (prefers-color-scheme: dark)
+					background-color: $primary
+					box-shadow: 0 0 0px 6px $secondary
 
 		div.invite-hint
 			height: fit-content

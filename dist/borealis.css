@@ -54,6 +54,12 @@ div.columns div.column:not(:last-child) {
   background-size: 1600% 1600% !important;
   -webkit-animation: loadingAnimation 10s ease infinite;
           animation: loadingAnimation 10s ease infinite;
+  color: black;
+}
+
+.loading img {
+  -webkit-filter: invert(0) !important;
+          filter: invert(0) !important;
 }
 
 @-webkit-keyframes loadingAnimation {
@@ -109,7 +115,10 @@ body {
 }
 
 h3.header {
-  margin-top: 0;
+  margin: 0;
+}
+
+h3.header:not(:last-child) {
   margin-bottom: 0.5em;
 }
 
@@ -196,10 +205,13 @@ html, body {
   }
 }
 
-a:not(.is-wrapper) {
+a {
   color: black;
-  opacity: .65;
   text-decoration: none;
+}
+
+a:not(.is-wrapper) {
+  opacity: .65;
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
 }
@@ -209,7 +221,7 @@ a:not(.is-wrapper):hover {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  a:not(.is-wrapper) {
+  a {
     color: white;
   }
 }
@@ -301,7 +313,11 @@ div.options {
   display: flex;
 }
 
-div.options .option:not(:last-child) {
+div.options div.option:not(:last-child) {
+  margin-right: 2em;
+}
+
+div.options a.is-wrapper:not(:last-child) {
   margin-right: 2em;
 }
 
@@ -336,59 +352,76 @@ div.menu-wrapper div.menu {
   box-shadow: 0 0 0 1px rgba(112, 128, 144, 0.25);
   opacity: 0;
   pointer-events: none;
+  -webkit-transition: top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 div.menu-wrapper div.menu div.menu-section:not(:last-child) {
   border-bottom: rgba(112, 128, 144, 0.5) 1.5px solid;
 }
 
-div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option {
-  padding: 0.8em;
+div.menu-wrapper div.menu div.menu-section a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option {
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.menu-wrapper div.menu div.menu-section a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option {
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+div.menu-wrapper div.menu div.menu-section div.menu-option {
+  padding: 0.8em;
   -webkit-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
   cursor: default;
 }
 
-div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option:not(.disabled):hover {
+div.menu-wrapper div.menu div.menu-section div.menu-option:not(:last-child) {
+  border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.menu-wrapper div.menu div.menu-section div.menu-option:not(:last-child) {
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+div.menu-wrapper div.menu div.menu-section div.menu-option:not(.disabled):hover {
   cursor: pointer;
   background-color: #f7f7f7;
 }
 
-div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option.has-icon {
+div.menu-wrapper div.menu div.menu-section div.menu-option.has-icon {
   display: -webkit-box;
   display: flex;
 }
 
-div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option.has-icon p.menu-option-content {
+div.menu-wrapper div.menu div.menu-section div.menu-option.has-icon p.menu-option-content {
   margin-left: 8px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option img.menu-option-icon {
+  div.menu-wrapper div.menu div.menu-section div.menu-option img.menu-option-icon {
     -webkit-filter: invert(1);
             filter: invert(1);
   }
 }
 
-div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option p.menu-option-content {
+div.menu-wrapper div.menu div.menu-section div.menu-option p.menu-option-content {
   margin: 0;
   padding: 0;
 }
 
-div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option p.menu-option-content.menu-option-title {
+div.menu-wrapper div.menu div.menu-section div.menu-option p.menu-option-content.menu-option-title {
   font-size: 18px;
   font-weight: bold;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  div.menu-wrapper div.menu div.menu-option-wrapper div.menu-option:not(.disabled):hover {
+  div.menu-wrapper div.menu div.menu-section div.menu-option:not(.disabled):hover {
     background-color: #111111;
   }
-}
-
-div.menu-wrapper div.menu div.menu-option-wrapper:last-child > div.menu-option {
-  border-bottom: none;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -551,8 +584,8 @@ div.chat div.chat-bar-wrapper {
 
 div.chat div.chat-bar-wrapper input.chat-bar {
   position: absolute;
-  color: white;
-  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  background-color: white;
   left: 1em;
   right: 2em;
   width: calc(100% - 5em);
@@ -562,6 +595,13 @@ div.chat div.chat-bar-wrapper input.chat-bar {
   border: 0;
   margin: 0;
   font-size: 20px;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.chat div.chat-bar-wrapper input.chat-bar {
+    color: white;
+    background-color: black;
+  }
 }
 
 div.chat div.chat-bar-wrapper div.send-button {
@@ -595,6 +635,13 @@ div.chat div.chat-bar-wrapper div.send-button.disabled {
 }
 
 @media screen and (prefers-color-scheme: dark) {
+  div.chat div.chat-bar-wrapper div.send-button.disabled img.send-button-icon {
+    -webkit-filter: invert(0.75);
+            filter: invert(0.75);
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
   div.chat div.chat-bar-wrapper div.send-button.disabled {
     background-color: #0e0e0e;
   }
@@ -608,9 +655,9 @@ div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  div.chat div.chat-bar-wrapper div.send-button img.send-button-icon:not(.disabled) {
-    -webkit-filter: invert(0.75);
-            filter: invert(0.75);
+  div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
+    -webkit-filter: invert(0);
+            filter: invert(0);
   }
 }
 
@@ -649,6 +696,10 @@ div.player-wrapper div.player {
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
+}
+
+div.player-wrapper div.player div.player-message {
+  position: absolute;
 }
 
 div.player-wrapper div.player video.stream {
@@ -698,7 +749,13 @@ div.player-footer div.user-icons div.user-icon.passable {
 }
 
 div.player-footer div.user-icons div.user-icon.passable:hover {
-  box-shadow: 0 0 0 5px white;
+  box-shadow: 0 0 0 5px black;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon.passable:hover {
+    box-shadow: 0 0 0 5px white;
+  }
 }
 
 div.player-footer div.user-icons div.user-icon.offline img.user-icon-avatar {
@@ -769,8 +826,8 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator {
   bottom: 2.15em;
   margin-left: 60px;
   border-radius: 50%;
-  background-color: white;
-  box-shadow: 0 0 0px 6px black;
+  background-color: black;
+  box-shadow: 0 0 0px 6px white;
   -webkit-box-align: center;
           align-items: center;
   -webkit-transform: scale(0);
@@ -785,6 +842,8 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator {
 
 div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
   height: 23px;
+  -webkit-filter: invert(1);
+          filter: invert(1);
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
@@ -792,6 +851,13 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator img.us
 div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon.remove-control {
   height: 0;
   opacity: 0;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
+    -webkit-filter: invert(0);
+            filter: invert(0);
+  }
 }
 
 div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable {
@@ -806,6 +872,13 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-int
 div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable:hover img.user-control-icon.remove-control {
   height: 23px;
   opacity: 1;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator {
+    background-color: white;
+    box-shadow: 0 0 0px 6px black;
+  }
 }
 
 div.player-footer div.user-icons div.invite-hint {
