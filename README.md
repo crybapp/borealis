@@ -49,7 +49,7 @@ yarn add @cryb/borealis
 ```
 
 ### CDN
-`@cryb/borealis` is also available through 
+`@cryb/borealis` is also available through [unpkg](https://unpkg.com/) and [jsdelivr](https://www.jsdelivr.com/).
 
 *Note: you only need to include one CSS file. Below we include both minified and unminified CDN links—we recommend that you use the minified version*
 
@@ -84,7 +84,7 @@ Simply link Borealis as you would any other HTML file:
 </head>
 ```
 
-Borealis is also offered through a CDN. While we recommend you download Borealis locally, you can use either [unpkg](https://unpkg.com/) and [jsdelivr](https://www.jsdelivr.com/).
+Borealis is also offered through a CDN. While we recommend you download Borealis locally, you can use either [unpkg](https://unpkg.com/) or [jsdelivr](https://www.jsdelivr.com/).
 
 #### unpkg
 ```html

@@ -5,9 +5,9 @@
 	"repository": "https://github.com/crybapp/borealis",
 	"author": "William Gibson <william@tired.io>",
 	"license": "MIT",
-	"main": "dist/borealis.min.css",
-	"unpkg": "dist/borealis.min.css",
-	"style": "borealis/css/borealis.min.css",
+	"main": "dist/borealis.css",
+	"unpkg": "dist/borealis.css",
+	"style": "borealis/css/borealis.css",
 	"scripts": {
 		"dev": "nodemon -e sass --ignore dist/ --exec \"yarn build-sass\"",
 		"dev:old": "yarn build-sass --watch",

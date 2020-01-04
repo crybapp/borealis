@@ -1,0 +1,61 @@
+input.input, button.button
+	padding: 10px
+
+	color: $secondary
+	background-color: $primary
+
+	border-radius: $borderRadius / 2
+
+	font-weight: 600
+	transition: $softTransition
+
+	border: none
+	outline: none
+
+	font-size: 16px
+
+	&:not(.is-loading), &:not(.is-disabled)
+		box-shadow: $primaryOutline
+
+	&:hover:not(.is-disabled), &:focus:not(.is-disabled)
+		box-shadow: $primaryOutlineHover
+
+		@media screen and (prefers-color-scheme: dark)
+			box-shadow: $secondaryOutlineHover
+
+	@media screen and (prefers-color-scheme: dark)
+		color: $primary
+		background-color: $secondary
+
+button.button
+	&.has-icon
+		display: inline-flex
+		align-items: center
+
+button.button:not(.is-disabled)
+	cursor: pointer
+
+	img.icon
+		height: 25px
+		margin-right: .5em
+
+		&.is-hover
+			display: none
+
+	&:hover
+		img.icon
+			display: none
+
+			&.is-hover
+				display: inline
+
+	&.has-theme
+		box-shadow: none
+
+		&.is-discord-theme
+			color: white
+			background-color: $discord
+
+			&:hover:not(.is-disabled)
+				color: $discord
+				background-color: white

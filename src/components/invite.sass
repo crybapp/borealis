@@ -1,0 +1,36 @@
+div.invite-wrapper
+	display: flex
+
+	div.invite-info
+		width: 100px
+
+		margin-right: 2em
+
+		div.invite-member-icons
+			display: grid
+			
+			grid-template-columns: auto auto
+
+			div.invite-member-icon-wrapper
+				&:nth-child(even)
+					margin-left: auto
+
+				&:nth-child(odd)
+					margin-right: auto
+
+				img.invite-member-icon
+					height: 35px
+
+					border-radius: 100%
+
+	div.invite-meta
+		a.is-wrapper:not(:last-child) button.button
+			margin-bottom: 1em
+
+	img.invite-icon
+		width: 100%
+
+		margin-bottom: 1em
+
+		@media screen and (prefers-color-scheme: dark)
+			filter: invert(1)

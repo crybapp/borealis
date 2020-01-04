@@ -4,10 +4,12 @@ div.box
 
 	background-color: $primary
 
-	box-shadow: $primaryOutline
 	border-radius: $borderRadius
 
 	transition: $softTransition
+
+	&:not(.is-loading), &:not(.is-disabled)
+		box-shadow: $primaryOutline
 
 	&.is-hoverable
 		-webkit-touch-callout: none

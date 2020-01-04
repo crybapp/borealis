@@ -58,6 +58,12 @@ div.menu-wrapper
 				p.menu-option-content
 					margin-left: 8px
 
+			&.is-disabled
+				opacity: 1
+
+				&:not(.is-loading)
+					cursor: default !important
+
 			img.menu-option-icon
 				@media screen and (prefers-color-scheme: dark)
 					filter: invert(1)
@@ -79,7 +85,7 @@ div.menu-wrapper
 					font-weight: 300
 
 					margin-top: 5px
-	
+
 					opacity: .65
 
 				p.menu-option-hint
