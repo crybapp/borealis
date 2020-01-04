@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .light {
   display: none;
 }
@@ -49,7 +48,7 @@ div.columns div.column:not(:last-child) {
   margin-right: 3em;
 }
 
-.loading {
+.is-loading {
   background: linear-gradient(225deg, red, #d200ff, #0063ff, #00ffc1, #0bff66, #16ff00, #f0ff00, red) !important;
   background-size: 1600% 1600% !important;
   -webkit-animation: loadingAnimation 10s ease infinite;
@@ -57,9 +56,14 @@ div.columns div.column:not(:last-child) {
   color: black;
 }
 
-.loading img {
+.is-loading img {
   -webkit-filter: invert(0) !important;
           filter: invert(0) !important;
+}
+
+.is-disabled {
+  cursor: not-allowed !important;
+  opacity: 0.75;
 }
 
 @-webkit-keyframes loadingAnimation {
@@ -190,7 +194,7 @@ div.header img.logo {
 
 div.header img.profile-image {
   width: 32px;
-  height: £headerHeight;
+  height: 32px;
   cursor: pointer;
   border-radius: 50%;
 }
@@ -277,7 +281,6 @@ div.box {
 }
 
 div.box.is-hoverable {
-  cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -285,16 +288,23 @@ div.box.is-hoverable {
   user-select: none;
 }
 
-div.box.is-hoverable:hover {
+div.box.is-hoverable:not(.is-disabled) {
+  cursor: pointer;
+}
+
+div.box.is-hoverable:not(.is-disabled):hover {
   box-shadow: 0 0 0px 1px #0e0e0e;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.box.is-hoverable:not(.is-disabled):hover {
+    box-shadow: 0 0 0px 1px #a1a1a1;
+  }
 }
 
 @media screen and (prefers-color-scheme: dark) {
   div.box {
     background-color: black;
-  }
-  div.box.is-hoverable:hover {
-    box-shadow: 0 0 0px 1px #a1a1a1;
   }
 }
 
@@ -305,7 +315,7 @@ div.list {
 }
 
 div.list div.box:not(:last-child) {
-  margin-bottom: 1em;
+  margin-bottom: 1e;
 }
 
 div.options {
@@ -356,70 +366,100 @@ div.menu-wrapper div.menu {
   transition: top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+div.menu-wrapper div.menu.is-header.is-left {
+  left: 16px;
+}
+
+div.menu-wrapper div.menu.is-header.is-right {
+  right: 16px;
+}
+
 div.menu-wrapper div.menu div.menu-section:not(:last-child) {
   border-bottom: rgba(112, 128, 144, 0.5) 1.5px solid;
 }
 
-div.menu-wrapper div.menu div.menu-section a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option {
+div.menu-wrapper div.menu a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option {
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  div.menu-wrapper div.menu div.menu-section a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option {
+  div.menu-wrapper div.menu a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option {
     border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   }
 }
 
-div.menu-wrapper div.menu div.menu-section div.menu-option {
+div.menu-wrapper div.menu div.menu-option {
   padding: 0.8em;
   -webkit-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
   cursor: default;
 }
 
-div.menu-wrapper div.menu div.menu-section div.menu-option:not(:last-child) {
+div.menu-wrapper div.menu div.menu-option:not(:last-child) {
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  div.menu-wrapper div.menu div.menu-section div.menu-option:not(:last-child) {
+  div.menu-wrapper div.menu div.menu-option:not(:last-child) {
     border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   }
 }
 
-div.menu-wrapper div.menu div.menu-section div.menu-option:not(.disabled):hover {
+div.menu-wrapper div.menu div.menu-option:not(.disabled):hover {
   cursor: pointer;
   background-color: #f7f7f7;
 }
 
-div.menu-wrapper div.menu div.menu-section div.menu-option.has-icon {
+div.menu-wrapper div.menu div.menu-option.has-icon {
   display: -webkit-box;
   display: flex;
 }
 
-div.menu-wrapper div.menu div.menu-section div.menu-option.has-icon p.menu-option-content {
+div.menu-wrapper div.menu div.menu-option.has-icon p.menu-option-content {
   margin-left: 8px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  div.menu-wrapper div.menu div.menu-section div.menu-option img.menu-option-icon {
+  div.menu-wrapper div.menu div.menu-option img.menu-option-icon {
     -webkit-filter: invert(1);
             filter: invert(1);
   }
 }
 
-div.menu-wrapper div.menu div.menu-section div.menu-option p.menu-option-content {
+div.menu-wrapper div.menu div.menu-option p.menu-option-content {
   margin: 0;
   padding: 0;
 }
 
-div.menu-wrapper div.menu div.menu-section div.menu-option p.menu-option-content.menu-option-title {
+div.menu-wrapper div.menu div.menu-option p.menu-option-content.menu-option-title {
   font-size: 18px;
   font-weight: bold;
 }
 
+div.menu-wrapper div.menu div.menu-option div.menu-option-content {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+div.menu-wrapper div.menu div.menu-option div.menu-option-content p.menu-option-subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 5px;
+  opacity: .65;
+}
+
+div.menu-wrapper div.menu div.menu-option div.menu-option-content p.menu-option-hint {
+  font-size: 12px;
+  font-weight: 300;
+  margin-top: 5px;
+  opacity: .65;
+}
+
 @media screen and (prefers-color-scheme: dark) {
-  div.menu-wrapper div.menu div.menu-section div.menu-option:not(.disabled):hover {
+  div.menu-wrapper div.menu div.menu-option:not(.disabled):hover {
     background-color: #111111;
   }
 }
@@ -478,21 +518,32 @@ div.chat p.chat-no-messages {
   }
 }
 
+div.chat p.chat-typing-bar {
+  position: absolute;
+  bottom: 90px;
+  margin: 0 1em;
+  font-size: 14px;
+  color: #6d6d6d !important;
+}
+
 div.chat div.grouped-chat-messages-wrapper {
   position: absolute;
   top: 0;
   bottom: 80px;
   width: calc(100% - 2em);
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
+  padding-bottom: 0;
   overflow-y: auto;
+}
+
+div.chat div.grouped-chat-messages-wrapper.users-are-typing {
+  bottom: 100px;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages {
   display: -webkit-box;
   display: flex;
-  margin-top: 1.5em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar {
@@ -519,6 +570,11 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-me
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message {
   display: -webkit-box;
   display: flex;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message.is-sending {
+  opacity: .5;
+  pointer-events: none;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content {
@@ -700,6 +756,7 @@ div.player-wrapper div.player {
 
 div.player-wrapper div.player div.player-message {
   position: absolute;
+  max-width: 70%;
 }
 
 div.player-wrapper div.player video.stream {
@@ -707,6 +764,12 @@ div.player-wrapper div.player video.stream {
   left: 50%;
   max-width: 100%;
   max-height: 100%;
+}
+
+div.player-wrapper div.player video.stream.is-placeholder {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 div.player-footer {

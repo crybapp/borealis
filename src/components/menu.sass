@@ -18,55 +18,81 @@ div.menu-wrapper
 
 		transition: top $softBounceTransitionAlt
 
+		&.is-header
+			&.is-left
+				left: 16px
+
+			&.is-right
+				right: 16px
+
 		div.menu-section
 			&:not(:last-child)
 				border-bottom: rgba(112, 128, 144, 0.5) 1.5px solid
 
-			a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option
+		a.is-wrapper:not(:last-child) div.menu-option-wrapper div.menu-option
+			border-bottom: $primaryBorder
+
+			@media screen and (prefers-color-scheme: dark)
+				border-bottom: $secondaryBorder
+
+		div.menu-option
+			padding: 0.8em
+
+			transition: background-color $softTransition
+
+			cursor: default
+
+			&:not(:last-child)
 				border-bottom: $primaryBorder
 
 				@media screen and (prefers-color-scheme: dark)
 					border-bottom: $secondaryBorder
 
-			div.menu-option
-				padding: 0.8em
+			&:not(.disabled):hover
+				cursor: pointer
+				background-color: $primaryHover
 
-				transition: background-color $softTransition
-
-				cursor: default
-
-				&:not(:last-child)
-					border-bottom: $primaryBorder
-
-					@media screen and (prefers-color-scheme: dark)
-						border-bottom: $secondaryBorder
-
-				&:not(.disabled):hover
-					cursor: pointer
-					background-color: $primaryHover
-
-				&.has-icon
-					display: flex
-
-					p.menu-option-content
-						margin-left: 8px
-
-				img.menu-option-icon
-					@media screen and (prefers-color-scheme: dark)
-						filter: invert(1)
+			&.has-icon
+				display: flex
 
 				p.menu-option-content
-					margin: 0
-					padding: 0
+					margin-left: 8px
 
-					&.menu-option-title
-						font-size: 18px
-						font-weight: bold
-
+			img.menu-option-icon
 				@media screen and (prefers-color-scheme: dark)
+					filter: invert(1)
 
-					&:not(.disabled):hover
-						background-color: $secondaryHover
+			p.menu-option-content
+				margin: 0
+				padding: 0
+
+				&.menu-option-title
+					font-size: 18px
+					font-weight: bold
+
+			div.menu-option-content
+				display: flex
+				flex-direction: column
+
+				p.menu-option-subtitle
+					font-size: 15px
+					font-weight: 300
+
+					margin-top: 5px
+	
+					opacity: .65
+
+				p.menu-option-hint
+					font-size: 12px
+					font-weight: 300
+
+					margin-top: 5px
+
+					opacity: .65
+
+			@media screen and (prefers-color-scheme: dark)
+				&:not(.disabled):hover
+					background-color: $secondaryHover
 
 		@media screen and (prefers-color-scheme: dark)
 			background-color: $secondary

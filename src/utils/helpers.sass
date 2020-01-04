@@ -22,7 +22,7 @@ div.columns
 		&:not(:last-child)
 			margin-right: 3em
 
-.loading
+.is-loading
 	background: linear-gradient(225deg, red, #d200ff, #0063ff, #00ffc1, #0bff66, #16ff00, #f0ff00, red) !important
     size: 1600% 1600% !important
 	animation: loadingAnimation 10s ease infinite
@@ -32,6 +32,11 @@ div.columns
 	
 	img
 		filter: invert(0) !important
+
+.is-disabled
+	cursor: not-allowed !important
+
+	opacity: 0.75
 
 @keyframes loadingAnimation
 	0%

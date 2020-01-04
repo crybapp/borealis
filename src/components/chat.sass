@@ -19,6 +19,16 @@ div.chat
 		@media screen and (prefers-color-scheme: dark)
 			color: $secondaryLight
 
+	p.chat-typing-bar
+		position: absolute
+
+		bottom: 90px
+
+		margin: 0 1em
+
+		font-size: 14px
+		color: #6d6d6d !important
+
 	div.grouped-chat-messages-wrapper
 		position: absolute
 
@@ -26,15 +36,17 @@ div.chat
 		bottom: 80px
 		width: calc(100% - 2em)
 
-		padding-left: 1em
-		padding-right: 1em
+		padding: 1em
+		padding-bottom: 0
 
 		overflow-y: auto
 
+		&.users-are-typing
+			bottom: 100px
+
 		div.grouped-chat-messages
 			display: flex
-			margin-top: 1.5em
-			margin-bottom: 2em
+			margin-bottom: 1em
 
 			img.chat-messages-author-avatar
 				width: 50px
@@ -55,6 +67,11 @@ div.chat
 
 				div.chat-message
 					display: flex
+
+					&.is-sending
+						opacity: .5
+
+						pointer-events: none
 
 					p.chat-message-content
 						margin: 0
