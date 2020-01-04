@@ -1,12 +1,13 @@
 {
 	"name": "@cryb/borealis",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "The official CSS framework for Cryb",
 	"repository": "https://github.com/crybapp/borealis",
 	"author": "William Gibson <william@tired.io>",
 	"license": "MIT",
-	"main": "dist/borealis.css",
-	"unpkg": "dist/borealis.css",
+	"main": "dist/borealis.min.css",
+	"unpkg": "dist/borealis.min.css",
+	"style": "borealis/css/borealis.min.css",
 	"scripts": {
 		"dev": "nodemon -e sass --ignore dist/ --exec \"yarn build-sass\"",
 		"dev:old": "yarn build-sass --watch",
