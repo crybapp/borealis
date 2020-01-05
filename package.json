@@ -1,6 +1,6 @@
 {
 	"name": "@cryb/borealis",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "The official CSS framework for Cryb",
 	"repository": "https://github.com/crybapp/borealis",
 	"author": "William Gibson <william@tired.io>",
@@ -10,12 +10,12 @@
 	"style": "borealis/css/borealis.min.css",
 	"scripts": {
 		"dev": "nodemon -e sass --ignore dist/ --exec \"yarn build-sass\"",
-		"dev:old": "yarn build-sass --watch",
 		"build": "yarn build-clean && yarn build-sass && yarn build-autoprefix && yarn build-cleancss",
 		"build-sass": "node-sass --output-style expanded --source-map true src/_all.sass dist/borealis.css",
 		"build-autoprefix": "postcss --use autoprefixer --map false --output dist/borealis.css dist/borealis.css",
 		"build-cleancss": "cleancss -o dist/borealis.min.css dist/borealis.css",
-		"build-clean": "rimraf dist"
+		"build-clean": "rimraf dist",
+		"deploy": "bash scripts/deploy.sh"
 	},
 	"husky": {
 		"hooks": {

@@ -7,7 +7,6 @@ _**Borealis**<sup>BETA</sup> — CSS framework_
 ## Docs
 * [Info](#info)
     * [Features](#features)
-        * [Planned Features](#planned-features)
     * [Status](#status)
 * [Installation](#installation)
 	* [CDN](#cdn)
@@ -29,10 +28,8 @@ Borealis is built to unify UI design across our web app, admin panel, landing pa
 It uses [Sass](https://sass-lang.com/) as its main preprocessor.
 
 ### Features
-* Dark mode support
-
-#### Planned Features
 * Mobile support
+* Dark mode support
 
 ### Status
 `@cryb/borealis` has been actively developed since December 2019.
