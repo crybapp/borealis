@@ -1147,11 +1147,19 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-me
   margin-bottom: 0.65em;
 }
 
-div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content div.chat-message-emoji {
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content img.chat-message-emoji {
   width: 1em;
   height: 1em;
   margin: .05em .1em;
   vertical-align: -.1em;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content img.chat-message-emoji:first-child {
+  margin-left: 0;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content img.chat-message-emoji:last-child {
+  margin-right: 0;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options {
