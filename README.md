@@ -13,7 +13,7 @@ _**Borealis**<sup>BETA</sup> — CSS framework_
 	* [CDN](#cdn)
 * [Usage](#usage)
 	* [HTML](#html)
-	* [Nuxt.js](#nuxt.js-integration)
+	* [Nuxt.js](#nuxt.js)
 * [Codebase](#codebase)
     * [Folder Structure](#folder-structure)
     * [First time setup](#first-time-setup)
@@ -122,6 +122,7 @@ The codebase for `@cryb/borealis` is written in Sass.
 cryb/borealis/
 ├──┐ src # Uncompiled Sass
 │  ├── components # Buttons, boxes, etc
+│  ├── pages # Styles for pages
 │  └── utils # Static variables
 ├─── dist # Compiled CSS
 └──┐ examples # Pages to test compiled CSS
