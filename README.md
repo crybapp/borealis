@@ -145,5 +145,4 @@ To run `@cryb/borealis` in development mode, run `yarn dev`. This mode will watc
 Once you have finished your changes, run `yarn build` to fully compile to `dist/`. You should do this before committing.
 
 ## Questions / Issues
-
 If you have an issues with `@cryb/borealis`, please either open a GitHub issue, contact a maintainer or join the [Cryb Discord Server](https://discord.gg/ShTATH4) and ask in #tech-support.
