@@ -1,15 +1,16 @@
 div.content
-    position: absolute
+	position: absolute
 
-    top: $headerHeightSize
-    left: 0
-    bottom: 0
-    width: 100%
+	top: $headerHeightSize
+	left: 0
+	bottom: 0
+	width: 100%
 
-    &.is-centre, &.is-center
-        display: flex
-        align-items: center
-        justify-content: center
-    
-    &.no-header
-        top: 0
+	&.is-centre, &.is-center
+		@media only screen and (min-width: $mobileBreakpoint)
+			display: flex
+			align-items: center
+			justify-content: center
+
+	&.no-header
+		top: 0

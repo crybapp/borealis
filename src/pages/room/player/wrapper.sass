@@ -4,8 +4,10 @@ div.player-wrapper
 
 	top: 0
 	left: 0
-	bottom: $playerFooterHeight + 1
+	bottom: $playerFooterHeight
 	width: $playerWidth
+
+	border-bottom: $primaryBorder
 
 	align-items: center
 	justify-content: center
@@ -37,3 +39,12 @@ div.player-wrapper
 				width: 100%
 
 				object-fit: cover
+
+	@media screen and (prefers-color-scheme: dark)
+		border-bottom: $secondaryBorder
+
+	@media only screen and (max-width: $mobileBreakpoint)
+		position: relative
+
+		width: 100%
+		bottom: auto

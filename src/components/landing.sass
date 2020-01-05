@@ -27,6 +27,9 @@ div.landing
 			img.logo
 				height: 30px
 				margin-bottom: .5em
+			
+		@media only screen and (max-width: $mobileBreakpoint)
+			width: 100%
 	
 	div.right
 		left: 50%
@@ -42,3 +45,6 @@ div.landing
 			height: 100%
 
 			transform: translateX(-50%)
+			
+		@media only screen and (max-width: $mobileBreakpoint)
+			display: none

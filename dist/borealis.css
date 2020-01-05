@@ -198,13 +198,15 @@ div.content {
   width: 100%;
 }
 
-div.content.is-centre, div.content.is-center {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+@media only screen and (min-width: 768px) {
+  div.content.is-centre, div.content.is-center {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
 }
 
 div.content.no-header {
@@ -219,6 +221,7 @@ div.header {
   left: 0;
   width: 100%;
   height: 32px;
+  background-color: white;
   padding: 16px;
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   z-index: 9997;
@@ -226,6 +229,7 @@ div.header {
 
 @media screen and (prefers-color-scheme: dark) {
   div.header {
+    background-color: black;
     border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   }
 }
@@ -285,8 +289,10 @@ div.footer p.footer {
   text-align: center;
 }
 
-div.landing div.left div.footer {
-  width: 50%;
+@media only screen and (min-width: 768px) {
+  div.landing div.left div.footer {
+    width: 50%;
+  }
 }
 
 div.box {
@@ -497,6 +503,12 @@ div.menu-wrapper.visible div.menu-cover {
   pointer-events: all;
 }
 
+@media only screen and (max-width: 768px) {
+  div.in-room, div.no-room, div.room-join, div.room-create {
+    margin: 1.5em 2em;
+  }
+}
+
 div.options {
   display: -webkit-box;
   display: flex;
@@ -508,6 +520,18 @@ div.options div.option:not(:last-child) {
 
 div.options a.is-wrapper:not(:last-child) {
   margin-right: 2em;
+}
+
+@media only screen and (max-width: 768px) {
+  div.options {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+  div.options a.is-wrapper:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 2em;
+  }
 }
 
 div.box.option {
@@ -527,6 +551,12 @@ div.box.option img.icon {
   div.box.option img.icon {
     -webkit-filter: invert(1);
             filter: invert(1);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.box.option {
+    width: calc(100% - 4em);
   }
 }
 
@@ -667,6 +697,370 @@ div.invite-wrapper img.invite-icon {
   }
 }
 
+div.landing {
+  display: -webkit-box;
+  display: flex;
+  display-align-items: center;
+  display-justify-content: center;
+}
+
+div.landing div.left, div.landing div.right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+}
+
+div.landing div.left {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  left: 0;
+}
+
+div.landing div.left div.center {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 60%;
+}
+
+div.landing div.left div.center h1.title {
+  margin-top: 0;
+}
+
+div.landing div.left div.center img.logo {
+  height: 30px;
+  margin-bottom: .5em;
+}
+
+@media only screen and (max-width: 768px) {
+  div.landing div.left {
+    width: 100%;
+  }
+}
+
+div.landing div.right {
+  left: 50%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+div.landing div.right iframe.video {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  height: 100%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 768px) {
+  div.landing div.right {
+    display: none;
+  }
+}
+
+div.player-wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: flex;
+  top: 0;
+  left: 0;
+  bottom: 180px;
+  width: calc(100% - 341px);
+  border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+div.player-wrapper div.player {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+div.player-wrapper div.player div.player-message {
+  position: absolute;
+  max-width: 70%;
+  color: white;
+}
+
+div.player-wrapper div.player video.stream {
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+div.player-wrapper div.player video.stream.is-placeholder {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-wrapper {
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-wrapper {
+    position: relative;
+    width: 100%;
+    bottom: auto;
+  }
+}
+
+div.player-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: calc(100% - 341px);
+  height: 180px;
+  border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  overflow: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+div.player-footer div.user-icons {
+  display: -webkit-box;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 40px;
+  margin: auto;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: stretch;
+          justify-content: stretch;
+}
+
+div.player-footer div.user-icons div.user-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+div.player-footer div.user-icons div.user-icon.passable {
+  cursor: pointer;
+  box-shadow: 0 0 0 0px black;
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+div.player-footer div.user-icons div.user-icon.passable:hover {
+  box-shadow: 0 0 0 5px black;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon.passable:hover {
+    box-shadow: 0 0 0 5px white;
+  }
+}
+
+div.player-footer div.user-icons div.user-icon.offline img.user-icon-avatar {
+  opacity: 0.25;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+div.player-footer div.user-icons div.user-icon:not(:last-child) {
+  margin-right: 1.5em;
+}
+
+div.player-footer div.user-icons div.user-icon.has-control div.user-control-indicator {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+div.player-footer div.user-icons div.user-icon img.user-icon-avatar {
+  height: 100%;
+  border-radius: 50%;
+}
+
+div.player-footer div.user-icons div.user-icon:not(.has-control):hover div.user-name-wrapper {
+  bottom: 2.15em;
+  opacity: 1;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
+  position: absolute;
+  width: 100px;
+  bottom: 1.5em;
+  margin: 0;
+  box-shadow: 0 0 0px 5px white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50px;
+  opacity: 0;
+  background-color: black;
+  -webkit-transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name {
+  margin: 6px;
+  color: white;
+  cursor: default;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name {
+    color: black;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
+    background-color: white;
+    box-shadow: 0 0 0px 5px black;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
+    width: 70px;
+  }
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator {
+  position: absolute;
+  display: -webkit-box;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  bottom: 2.15em;
+  margin-left: 60px;
+  border-radius: 50%;
+  background-color: black;
+  box-shadow: 0 0 0px 6px white;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
+  height: 23px;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon.remove-control {
+  height: 0;
+  opacity: 0;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
+    -webkit-filter: invert(0);
+            filter: invert(0);
+  }
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable {
+  cursor: pointer;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable:hover img.user-control-icon.has-control {
+  height: 0px;
+  opacity: 0;
+}
+
+div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable:hover img.user-control-icon.remove-control {
+  height: 23px;
+  opacity: 1;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator {
+    background-color: white;
+    box-shadow: 0 0 0px 6px black;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator {
+    width: 30px;
+    height: 30px;
+    margin-left: 40px;
+  }
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
+    height: 19px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-footer div.user-icons div.user-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+div.player-footer div.user-icons div.invite-hint {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-width: 20em;
+  margin-left: .5em;
+}
+
+div.player-footer div.user-icons div.invite-hint h3.invite-hint-title {
+  margin: 0;
+  margin-bottom: 0.55em;
+}
+
+div.player-footer div.user-icons div.invite-hint p.invite-hint-subtitle {
+  margin: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer {
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-footer {
+    position: relative;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
+div.room {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
 div.chat {
   position: absolute;
   top: 0;
@@ -800,6 +1194,12 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.grouped
   font-weight: 600;
 }
 
+@media only screen and (max-width: 768px) {
+  div.chat div.grouped-chat-messages-wrapper {
+    position: relative;
+  }
+}
+
 div.chat div.chat-bar-wrapper {
   position: absolute;
   left: 0;
@@ -894,304 +1294,25 @@ div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  div.chat div.chat-bar-wrapper {
+    position: relative;
+  }
+}
+
 @media screen and (prefers-color-scheme: dark) {
   div.chat {
     border-left: rgba(112, 128, 144, 0.25) 1px solid;
   }
 }
 
-div.player-wrapper {
-  position: absolute;
-  display: -webkit-box;
-  display: flex;
-  top: 0;
-  left: 0;
-  bottom: 181px;
-  width: calc(100% - 341px);
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-}
-
-div.player-wrapper div.player {
-  display: -webkit-box;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-}
-
-div.player-wrapper div.player div.player-message {
-  position: absolute;
-  max-width: 70%;
-  color: white;
-}
-
-div.player-wrapper div.player video.stream {
-  top: 50%;
-  left: 50%;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-div.player-wrapper div.player video.stream.is-placeholder {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-div.player-footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: calc(100% - 341px);
-  height: 180px;
-  border-top: rgba(112, 128, 144, 0.25) 1px solid;
-  overflow: none;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-div.player-footer div.user-icons {
-  display: -webkit-box;
-  display: flex;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 40px;
-  margin: auto;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: stretch;
-          justify-content: stretch;
-}
-
-div.player-footer div.user-icons div.user-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-div.player-footer div.user-icons div.user-icon.passable {
-  cursor: pointer;
-  box-shadow: 0 0 0 0px black;
-  -webkit-transition: box-shadow 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out;
-}
-
-div.player-footer div.user-icons div.user-icon.passable:hover {
-  box-shadow: 0 0 0 5px black;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  div.player-footer div.user-icons div.user-icon.passable:hover {
-    box-shadow: 0 0 0 5px white;
+@media only screen and (max-width: 768px) {
+  div.chat {
+    position: relative;
+    width: 100%;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
+    border-left: none;
   }
-}
-
-div.player-footer div.user-icons div.user-icon.offline img.user-icon-avatar {
-  opacity: 0.25;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-}
-
-div.player-footer div.user-icons div.user-icon:not(:last-child) {
-  margin-right: 1.5em;
-}
-
-div.player-footer div.user-icons div.user-icon.has-control div.user-control-indicator {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-div.player-footer div.user-icons div.user-icon img.user-icon-avatar {
-  height: 100%;
-  border-radius: 50%;
-}
-
-div.player-footer div.user-icons div.user-icon:not(.has-control):hover div.user-name-wrapper {
-  bottom: 2.15em;
-  opacity: 1;
-}
-
-div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
-  position: absolute;
-  width: 100px;
-  bottom: 1.5em;
-  margin: 0;
-  box-shadow: 0 0 0px 5px white;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 50px;
-  opacity: 0;
-  background-color: black;
-  -webkit-transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name {
-  margin: 6px;
-  color: white;
-  cursor: default;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name {
-    color: black;
-  }
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
-    background-color: white;
-    box-shadow: 0 0 0px 5px black;
-  }
-}
-
-div.player-footer div.user-icons div.user-icon div.user-control-indicator {
-  position: absolute;
-  display: -webkit-box;
-  display: flex;
-  width: 40px;
-  height: 40px;
-  bottom: 2.15em;
-  margin-left: 60px;
-  border-radius: 50%;
-  background-color: black;
-  box-shadow: 0 0 0px 6px white;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
-  height: 23px;
-  -webkit-filter: invert(1);
-          filter: invert(1);
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
-div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon.remove-control {
-  height: 0;
-  opacity: 0;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
-    -webkit-filter: invert(0);
-            filter: invert(0);
-  }
-}
-
-div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable {
-  cursor: pointer;
-}
-
-div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable:hover img.user-control-icon.has-control {
-  height: 0px;
-  opacity: 0;
-}
-
-div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-interactable:hover img.user-control-icon.remove-control {
-  height: 23px;
-  opacity: 1;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  div.player-footer div.user-icons div.user-icon div.user-control-indicator {
-    background-color: white;
-    box-shadow: 0 0 0px 6px black;
-  }
-}
-
-div.player-footer div.user-icons div.invite-hint {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  max-width: 20em;
-  margin-left: .5em;
-}
-
-div.player-footer div.user-icons div.invite-hint h3.invite-hint-title {
-  margin: 0;
-  margin-bottom: 0.55em;
-}
-
-div.player-footer div.user-icons div.invite-hint p.invite-hint-subtitle {
-  margin: 0;
-  margin-bottom: 0;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  div.player-footer {
-    border-top: rgba(112, 128, 144, 0.25) 1px solid;
-  }
-}
-
-div.landing {
-  display: -webkit-box;
-  display: flex;
-  display-align-items: center;
-  display-justify-content: center;
-}
-
-div.landing div.left, div.landing div.right {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-}
-
-div.landing div.left {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  left: 0;
-}
-
-div.landing div.left div.center {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  max-width: 60%;
-}
-
-div.landing div.left div.center h1.title {
-  margin-top: 0;
-}
-
-div.landing div.left div.center img.logo {
-  height: 30px;
-  margin-bottom: .5em;
-}
-
-div.landing div.right {
-  left: 50%;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-div.landing div.right iframe.video {
-  position: absolute;
-  left: 50%;
-  right: 0;
-  height: 100%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
 /*# sourceMappingURL=borealis.css.map */

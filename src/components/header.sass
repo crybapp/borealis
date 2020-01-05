@@ -1,52 +1,55 @@
 div.header
-    position: fixed
-    display: flex
+	position: fixed
+	display: flex
 
-    top: 0
-    left: 0
-    width: 100%
-    height: $headerHeight
+	top: 0
+	left: 0
+	width: 100%
+	height: $headerHeight
 
-    padding: $headerPadding
+	background-color: $primary
 
-    border-bottom: $primaryBorder
+	padding: $headerPadding
 
-    z-index: 9997
+	border-bottom: $primaryBorder
 
-    @media screen and (prefers-color-scheme: dark)
-        border-bottom: $secondaryBorder
+	z-index: 9997
 
-    div.left, div.right
-        position: fixed
-        display: flex
+	@media screen and (prefers-color-scheme: dark)
+		background-color: $secondary
+		border-bottom: $secondaryBorder
 
-        height: $headerHeight
+	div.left, div.right
+		position: fixed
+		display: flex
 
-        flex-direction: row
+		height: $headerHeight
 
-    div.left
-        left: $headerPadding
+		flex-direction: row
 
-        h1.header-title
-            margin: 0
-            margin-left: 0.65em
+	div.left
+		left: $headerPadding
 
-            font-size: 27px
-            font-weight: 500
+		h1.header-title
+			margin: 0
+			margin-left: 0.65em
 
-    div.right
-        right: $headerPadding
+			font-size: 27px
+			font-weight: 500
 
-        div.menu
-            right: $headerPadding
+	div.right
+		right: $headerPadding
 
-    img.logo
-        width: 39px
+		div.menu
+			right: $headerPadding
 
-    img.profile-image
-        width: 32px
-        height: $headerHeight
+	img.logo
+		width: 39px
 
-        cursor: pointer
+	img.profile-image
+		width: 32px
+		height: $headerHeight
 
-        border-radius: 50%
+		cursor: pointer
+
+		border-radius: 50%
