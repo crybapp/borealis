@@ -196,7 +196,6 @@ div.content {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: white;
 }
 
 div.content.is-centre, div.content.is-center {
@@ -212,12 +211,6 @@ div.content.no-header {
   top: 0;
 }
 
-@media screen and (prefers-color-scheme: dark) {
-  div.content {
-    background-color: black;
-  }
-}
-
 div.header {
   position: fixed;
   display: -webkit-box;
@@ -227,14 +220,12 @@ div.header {
   width: 100%;
   height: 32px;
   padding: 16px;
-  background-color: white;
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   z-index: 9997;
 }
 
 @media screen and (prefers-color-scheme: dark) {
   div.header {
-    background-color: black;
     border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   }
 }
@@ -617,11 +608,19 @@ button.button:not(.is-disabled).has-theme {
 button.button:not(.is-disabled).has-theme.is-discord-theme {
   color: white;
   background-color: #7289DA;
+  box-shadow: 0 0 0 1px rgba(114, 137, 218, 0.25);
 }
 
 button.button:not(.is-disabled).has-theme.is-discord-theme:hover:not(.is-disabled) {
   color: #7289DA;
   background-color: white;
+  box-shadow: 0 0 0 1px #7289DA;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  button.button:not(.is-disabled).has-theme.is-discord-theme:hover:not(.is-disabled) {
+    background-color: black;
+  }
 }
 
 div.invite-wrapper {
@@ -929,6 +928,7 @@ div.player-wrapper div.player {
 div.player-wrapper div.player div.player-message {
   position: absolute;
   max-width: 70%;
+  color: white;
 }
 
 div.player-wrapper div.player video.stream {

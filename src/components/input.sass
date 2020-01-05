@@ -56,6 +56,13 @@ button.button:not(.is-disabled)
 			color: white
 			background-color: $discord
 
+			box-shadow: $discordOutline
+
 			&:hover:not(.is-disabled)
 				color: $discord
-				background-color: white
+				background-color: $primary
+
+				box-shadow: $discordOutlineHover
+
+				@media screen and (prefers-color-scheme: dark)
+					background-color: $secondary
