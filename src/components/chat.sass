@@ -118,6 +118,9 @@ div.chat
 					font-size: 20px
 					font-weight: 600
 
+		@media only screen and (max-width: $mobileBreakpoint)
+			position: relative
+
 	div.chat-bar-wrapper
 		position: absolute
 
@@ -202,5 +205,16 @@ div.chat
 		@media screen and (prefers-color-scheme: dark)
 			border-top: $secondaryBorder
 
+		@media only screen and (max-width: $mobileBreakpoint)
+			position: relative
+
 	@media screen and (prefers-color-scheme: dark)
 		border-left: $secondaryBorder
+
+	@media only screen and (max-width: $mobileBreakpoint)
+		position: relative
+
+		width: 100%
+		flex-grow: 1
+		
+		border-left: none

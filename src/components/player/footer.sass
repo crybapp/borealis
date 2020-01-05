@@ -6,7 +6,7 @@ div.player-footer
 	width: $playerWidth
 	height: $playerFooterHeight
 
-	border-top: $primaryBorder
+	border-bottom: $primaryBorder
 
 	overflow: none
 	overflow-x: auto
@@ -98,6 +98,9 @@ div.player-footer
 
 					box-shadow: 0 0 0px 5px $secondary
 
+				@media only screen and (max-width: $mobileBreakpoint)
+					width: 70px
+
 			div.user-control-indicator
 				position: absolute
 				display: flex
@@ -111,11 +114,11 @@ div.player-footer
 
 				background-color: $secondary
 				box-shadow: 0 0 0px 6px $primary
-				
+
 				align-items: center
-				
+
 				transform: scale(0)
-				
+
 				justify-content: center
 				transition: transform $softBounceTransition
 
@@ -153,6 +156,19 @@ div.player-footer
 					background-color: $primary
 					box-shadow: 0 0 0px 6px $secondary
 
+				@media only screen and (max-width: $mobileBreakpoint)
+					width: 30px
+					height: 30px
+
+					margin-left: 40px
+
+					img.user-control-icon
+						height: 19px
+
+			@media only screen and (max-width: $mobileBreakpoint)
+				width: 70px
+				height: 70px
+
 		div.invite-hint
 			height: fit-content
 
@@ -169,4 +185,10 @@ div.player-footer
 				margin-bottom: 0
 
 	@media screen and (prefers-color-scheme: dark)
-		border-top: $secondaryBorder
+		border-bottom: $secondaryBorder
+
+	@media only screen and (max-width: $mobileBreakpoint)
+		position: relative
+
+		width: 100%
+		height: fit-content

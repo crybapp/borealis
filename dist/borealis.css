@@ -198,13 +198,15 @@ div.content {
   width: 100%;
 }
 
-div.content.is-centre, div.content.is-center {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+@media only screen and (min-width: 768px) {
+  div.content.is-centre, div.content.is-center {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
 }
 
 div.content.no-header {
@@ -219,6 +221,7 @@ div.header {
   left: 0;
   width: 100%;
   height: 32px;
+  background-color: white;
   padding: 16px;
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   z-index: 9997;
@@ -226,6 +229,7 @@ div.header {
 
 @media screen and (prefers-color-scheme: dark) {
   div.header {
+    background-color: black;
     border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   }
 }
@@ -285,8 +289,10 @@ div.footer p.footer {
   text-align: center;
 }
 
-div.landing div.left div.footer {
-  width: 50%;
+@media only screen and (min-width: 768px) {
+  div.landing div.left div.footer {
+    width: 50%;
+  }
 }
 
 div.box {
@@ -497,6 +503,12 @@ div.menu-wrapper.visible div.menu-cover {
   pointer-events: all;
 }
 
+@media only screen and (max-width: 768px) {
+  div.in-room, div.no-room, div.room-join, div.room-create {
+    margin: 1.5em 2em;
+  }
+}
+
 div.options {
   display: -webkit-box;
   display: flex;
@@ -508,6 +520,18 @@ div.options div.option:not(:last-child) {
 
 div.options a.is-wrapper:not(:last-child) {
   margin-right: 2em;
+}
+
+@media only screen and (max-width: 768px) {
+  div.options {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+  div.options a.is-wrapper:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 2em;
+  }
 }
 
 div.box.option {
@@ -527,6 +551,12 @@ div.box.option img.icon {
   div.box.option img.icon {
     -webkit-filter: invert(1);
             filter: invert(1);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.box.option {
+    width: calc(100% - 4em);
   }
 }
 
@@ -667,6 +697,14 @@ div.invite-wrapper img.invite-icon {
   }
 }
 
+div.room {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
 div.chat {
   position: absolute;
   top: 0;
@@ -800,6 +838,12 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.grouped
   font-weight: 600;
 }
 
+@media only screen and (max-width: 768px) {
+  div.chat div.grouped-chat-messages-wrapper {
+    position: relative;
+  }
+}
+
 div.chat div.chat-bar-wrapper {
   position: absolute;
   left: 0;
@@ -894,9 +938,25 @@ div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  div.chat div.chat-bar-wrapper {
+    position: relative;
+  }
+}
+
 @media screen and (prefers-color-scheme: dark) {
   div.chat {
     border-left: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.chat {
+    position: relative;
+    width: 100%;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
+    border-left: none;
   }
 }
 
@@ -906,8 +966,9 @@ div.player-wrapper {
   display: flex;
   top: 0;
   left: 0;
-  bottom: 181px;
+  bottom: 180px;
   width: calc(100% - 341px);
+  border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   -webkit-box-align: center;
           align-items: center;
   -webkit-box-pack: center;
@@ -944,13 +1005,27 @@ div.player-wrapper div.player video.stream.is-placeholder {
      object-fit: cover;
 }
 
+@media screen and (prefers-color-scheme: dark) {
+  div.player-wrapper {
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-wrapper {
+    position: relative;
+    width: 100%;
+    bottom: auto;
+  }
+}
+
 div.player-footer {
   position: absolute;
   left: 0;
   bottom: 0;
   width: calc(100% - 341px);
   height: 180px;
-  border-top: rgba(112, 128, 144, 0.25) 1px solid;
+  border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   overflow: none;
   overflow-x: auto;
   overflow-y: hidden;
@@ -1052,6 +1127,12 @@ div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name
   }
 }
 
+@media only screen and (max-width: 768px) {
+  div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
+    width: 70px;
+  }
+}
+
 div.player-footer div.user-icons div.user-icon div.user-control-indicator {
   position: absolute;
   display: -webkit-box;
@@ -1116,6 +1197,24 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-int
   }
 }
 
+@media only screen and (max-width: 768px) {
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator {
+    width: 30px;
+    height: 30px;
+    margin-left: 40px;
+  }
+  div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
+    height: 19px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-footer div.user-icons div.user-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
 div.player-footer div.user-icons div.invite-hint {
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -1136,7 +1235,17 @@ div.player-footer div.user-icons div.invite-hint p.invite-hint-subtitle {
 
 @media screen and (prefers-color-scheme: dark) {
   div.player-footer {
-    border-top: rgba(112, 128, 144, 0.25) 1px solid;
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-footer {
+    position: relative;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 
@@ -1180,6 +1289,12 @@ div.landing div.left div.center img.logo {
   margin-bottom: .5em;
 }
 
+@media only screen and (max-width: 768px) {
+  div.landing div.left {
+    width: 100%;
+  }
+}
+
 div.landing div.right {
   left: 50%;
   overflow: hidden;
@@ -1193,5 +1308,11 @@ div.landing div.right iframe.video {
   height: 100%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 768px) {
+  div.landing div.right {
+    display: none;
+  }
 }
 /*# sourceMappingURL=borealis.css.map */
