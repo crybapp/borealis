@@ -1,6 +1,6 @@
 ![Cryb OSS](.github/cryb.png "Cryb OSS Logo")
 
-_**Borealis**<sup>BETA</sup> — CSS framework_
+_**Borealis** — CSS framework_
 
 [![GitHub contributors](https://img.shields.io/github/contributors/crybapp/borealis)](https://github.com/crybapp/borealis/graphs/contributors) [![License](https://img.shields.io/github/license/crybapp/borealis)](https://github.com/crybapp/borealis/blob/master/LICENSE) [![Patreon Donate](https://img.shields.io/badge/donate-Patreon-red.svg)](https://patreon.com/cryb)
 
@@ -142,4 +142,4 @@ To run `@cryb/borealis` in development mode, run `yarn dev`. This mode will watc
 Once you have finished your changes, run `yarn build` to fully compile to `dist/`. You should do this before committing.
 
 ## Questions / Issues
-If you have an issues with `@cryb/borealis`, please either open a GitHub issue, contact a maintainer or join the [Cryb Discord Server](https://discord.gg/ShTATH4) and ask in #tech-support.
+If you have an issues with `@cryb/borealis`, please either open a GitHub issue, contact a maintainer or join the [Cryb Discord Server](https://discord.gg/ShTATH4) and ask in #tech-support
