@@ -74,7 +74,7 @@ Compiled CSS can be found under `@cryb/borealis/dist/` as `borealis.css` and `bo
 We recommend you use `borealis.min.css` in production environments.
 
 ### HTML
-Simply link Borealis as you would any other HTML file:
+Simply link Borealis as you would any other CSS file:
 ```html
 <head>
 	<link rel="stylesheet" href="css/borealis.min.css">
