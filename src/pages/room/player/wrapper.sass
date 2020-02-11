@@ -28,9 +28,12 @@ div.player-wrapper
 
 			color: white
 
-		video.stream
+		video
 			top: 50%
 			left: 50%
+
+			width: 100%
+			height: auto
 
 			max-width: 100%
 			max-height: 100%
@@ -39,6 +42,10 @@ div.player-wrapper
 				width: 100%
 
 				object-fit: cover
+
+			&:focus
+				outline: none
+
 
 	@media screen and (prefers-color-scheme: dark)
 		border-bottom: $secondaryBorder

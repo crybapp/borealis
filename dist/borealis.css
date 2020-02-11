@@ -36,7 +36,6 @@ div.content.has-content {
 }
 
 div.columns {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -64,31 +63,17 @@ p.error {
 .is-loading {
   background: linear-gradient(225deg, red, #d200ff, #0063ff, #00ffc1, #0bff66, #16ff00, #f0ff00, red) !important;
   background-size: 1600% 1600% !important;
-  -webkit-animation: loadingAnimation 10s ease infinite;
-          animation: loadingAnimation 10s ease infinite;
+  animation: loadingAnimation 10s ease infinite;
   color: black;
 }
 
 .is-loading img {
-  -webkit-filter: invert(0) !important;
-          filter: invert(0) !important;
+  filter: invert(0) !important;
 }
 
 .is-disabled {
   cursor: not-allowed !important;
   opacity: 0.75;
-}
-
-@-webkit-keyframes loadingAnimation {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  to {
-    background-position: 0 50%;
-  }
 }
 
 @keyframes loadingAnimation {
@@ -168,7 +153,6 @@ a {
 
 a:not(.is-wrapper) {
   opacity: .65;
-  -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
 }
 
@@ -200,12 +184,9 @@ div.content {
 
 @media only screen and (min-width: 768px) {
   div.content.is-centre, div.content.is-center {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -215,7 +196,6 @@ div.content.no-header {
 
 div.header {
   position: fixed;
-  display: -webkit-box;
   display: flex;
   top: 0;
   left: 0;
@@ -236,12 +216,9 @@ div.header {
 
 div.header div.left, div.header div.right {
   position: fixed;
-  display: -webkit-box;
   display: flex;
   height: 32px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 div.header div.left {
@@ -296,15 +273,10 @@ div.footer p.footer {
 }
 
 div.box {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   background-color: white;
   border-radius: 10px;
-  -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
 }
 
@@ -315,6 +287,7 @@ div.box:not(.is-loading), div.box:not(.is-disabled) {
 div.box.is-hoverable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -361,7 +334,6 @@ div.menu-wrapper div.menu {
   box-shadow: 0 0 0 1px rgba(112, 128, 144, 0.25);
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -389,7 +361,6 @@ div.menu-wrapper div.menu a.is-wrapper:not(:last-child) div.menu-option-wrapper 
 
 div.menu-wrapper div.menu div.menu-option {
   padding: 0.8em;
-  -webkit-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
   cursor: default;
 }
@@ -410,7 +381,6 @@ div.menu-wrapper div.menu div.menu-option:not(.disabled):hover {
 }
 
 div.menu-wrapper div.menu div.menu-option.has-icon {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -428,8 +398,7 @@ div.menu-wrapper div.menu div.menu-option.is-disabled:not(.is-loading) {
 
 @media screen and (prefers-color-scheme: dark) {
   div.menu-wrapper div.menu div.menu-option img.menu-option-icon {
-    -webkit-filter: invert(1);
-            filter: invert(1);
+    filter: invert(1);
   }
 }
 
@@ -444,11 +413,8 @@ div.menu-wrapper div.menu div.menu-option p.menu-option-content.menu-option-titl
 }
 
 div.menu-wrapper div.menu div.menu-option div.menu-option-content {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 div.menu-wrapper div.menu div.menu-option div.menu-option-content p.menu-option-subtitle {
@@ -486,7 +452,6 @@ div.menu-wrapper div.menu-cover {
   height: 100%;
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
   z-index: -1;
 }
@@ -510,7 +475,6 @@ div.menu-wrapper.visible div.menu-cover {
 }
 
 div.options {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -524,9 +488,7 @@ div.options a.is-wrapper:not(:last-child) {
 
 @media only screen and (max-width: 768px) {
   div.options {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
   }
   div.options a.is-wrapper:not(:last-child) {
     margin-right: 0;
@@ -536,8 +498,6 @@ div.options a.is-wrapper:not(:last-child) {
 
 div.box.option {
   width: 14em;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 2em;
 }
@@ -549,8 +509,7 @@ div.box.option img.icon {
 
 @media screen and (prefers-color-scheme: dark) {
   div.box.option img.icon {
-    -webkit-filter: invert(1);
-            filter: invert(1);
+    filter: invert(1);
   }
 }
 
@@ -561,7 +520,6 @@ div.box.option img.icon {
 }
 
 div.form {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -575,7 +533,6 @@ input.input, button.button {
   background-color: white;
   border-radius: 5px;
   font-weight: 600;
-  -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
   border: none;
   outline: none;
@@ -604,10 +561,8 @@ input.input:hover:not(.is-disabled), input.input:focus:not(.is-disabled), button
 }
 
 button.button.has-icon {
-  display: -webkit-inline-box;
   display: inline-flex;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 button.button:not(.is-disabled) {
@@ -654,7 +609,6 @@ button.button:not(.is-disabled).has-theme.is-discord-theme:hover:not(.is-disable
 }
 
 div.invite-wrapper {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -692,13 +646,11 @@ div.invite-wrapper img.invite-icon {
 
 @media screen and (prefers-color-scheme: dark) {
   div.invite-wrapper img.invite-icon {
-    -webkit-filter: invert(1);
-            filter: invert(1);
+    filter: invert(1);
   }
 }
 
 div.landing {
-  display: -webkit-box;
   display: flex;
   display-align-items: center;
   display-justify-content: center;
@@ -712,18 +664,13 @@ div.landing div.left, div.landing div.right {
 }
 
 div.landing div.left {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   left: 0;
 }
 
 div.landing div.left div.center {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   max-width: 60%;
 }
@@ -754,8 +701,7 @@ div.landing div.right iframe.video {
   left: 50%;
   right: 0;
   height: 100%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 @media only screen and (max-width: 768px) {
@@ -766,28 +712,22 @@ div.landing div.right iframe.video {
 
 div.player-wrapper {
   position: absolute;
-  display: -webkit-box;
   display: flex;
   top: 0;
   left: 0;
   bottom: 180px;
   width: calc(100% - 341px);
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 div.player-wrapper div.player {
-  display: -webkit-box;
   display: flex;
   width: 100%;
   height: 100%;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 div.player-wrapper div.player div.player-message {
@@ -805,8 +745,7 @@ div.player-wrapper div.player video.stream {
 
 div.player-wrapper div.player video.stream.is-placeholder {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -835,18 +774,69 @@ div.player-footer {
   overflow-y: hidden;
 }
 
-div.player-footer div.user-icons {
-  display: -webkit-box;
+div.player-footer div.control-bar {
   display: flex;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 40px;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+  width: 100%;
   margin: auto;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: stretch;
-          justify-content: stretch;
+}
+
+div.player-footer div.control-bar .fullscreen-toggle {
+  margin: auto 20px;
+}
+
+div.player-footer div.control-bar .volume-controls {
+  width: 10%;
+  margin: 10px 20px;
+}
+
+div.player-footer div.control-bar .volume-slider {
+  transform: translate(0, -300%);
+  margin: auto 0;
+  height: 3px;
+  background: white;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+div.player-footer div.control-bar .volume-slider:focus {
+  outline: none;
+}
+
+div.player-footer div.control-bar .volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+}
+
+div.player-footer div.control-bar .volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+}
+
+div.player-footer div.control-bar img.icon {
+  cursor: pointer;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.player-footer div.control-bar img.icon {
+    filter: invert(1);
+  }
+}
+
+div.player-footer div.user-icons {
+  display: flex;
+  width: fit-content;
+  padding: 0px 40px 40px 40px;
+  margin: auto;
+  align-items: center;
+  justify-content: stretch;
 }
 
 div.player-footer div.user-icons div.user-icon {
@@ -858,7 +848,6 @@ div.player-footer div.user-icons div.user-icon {
 div.player-footer div.user-icons div.user-icon.passable {
   cursor: pointer;
   box-shadow: 0 0 0 0px black;
-  -webkit-transition: box-shadow 0.2s ease-in-out;
   transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -883,8 +872,7 @@ div.player-footer div.user-icons div.user-icon:not(:last-child) {
 }
 
 div.player-footer div.user-icons div.user-icon.has-control div.user-control-indicator {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
 
 div.player-footer div.user-icons div.user-icon img.user-icon-avatar {
@@ -908,7 +896,6 @@ div.player-footer div.user-icons div.user-icon div.user-name-wrapper {
   border-radius: 50px;
   opacity: 0;
   background-color: black;
-  -webkit-transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -939,7 +926,6 @@ div.player-footer div.user-icons div.user-icon div.user-name-wrapper p.user-name
 
 div.player-footer div.user-icons div.user-icon div.user-control-indicator {
   position: absolute;
-  display: -webkit-box;
   display: flex;
   width: 40px;
   height: 40px;
@@ -948,23 +934,15 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator {
   border-radius: 50%;
   background-color: black;
   box-shadow: 0 0 0px 6px white;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  transform: scale(0);
+  justify-content: center;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
   height: 23px;
-  -webkit-filter: invert(1);
-          filter: invert(1);
-  -webkit-transition: 0.2s ease-in-out;
+  filter: invert(1);
   transition: 0.2s ease-in-out;
 }
 
@@ -975,8 +953,7 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator img.us
 
 @media screen and (prefers-color-scheme: dark) {
   div.player-footer div.user-icons div.user-icon div.user-control-indicator img.user-control-icon {
-    -webkit-filter: invert(0);
-            filter: invert(0);
+    filter: invert(0);
   }
 }
 
@@ -1020,8 +997,6 @@ div.player-footer div.user-icons div.user-icon div.user-control-indicator.is-int
 }
 
 div.player-footer div.user-icons div.invite-hint {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   max-width: 20em;
   margin-left: .5em;
@@ -1047,18 +1022,13 @@ div.player-footer div.user-icons div.invite-hint p.invite-hint-subtitle {
   div.player-footer {
     position: relative;
     width: 100%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
     height: fit-content;
   }
 }
 
 div.room {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 div.chat {
@@ -1106,7 +1076,6 @@ div.chat div.grouped-chat-messages-wrapper.users-are-typing {
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages {
-  display: -webkit-box;
   display: flex;
   margin-bottom: 1em;
 }
@@ -1133,7 +1102,6 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-me
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -1172,7 +1140,6 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-me
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option {
   cursor: pointer;
   opacity: 0.25;
-  -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
 
@@ -1190,8 +1157,7 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-me
 
 @media screen and (prefers-color-scheme: dark) {
   div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option {
-    -webkit-filter: invert(1);
-            filter: invert(1);
+    filter: invert(1);
   }
 }
 
@@ -1248,7 +1214,6 @@ div.chat div.chat-bar-wrapper input.chat-bar {
 
 div.chat div.chat-bar-wrapper div.send-button {
   position: absolute;
-  display: -webkit-box;
   display: flex;
   cursor: pointer;
   right: 0;
@@ -1257,11 +1222,8 @@ div.chat div.chat-bar-wrapper div.send-button {
   margin: 20px;
   border-radius: 13px;
   background-color: black;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-transition: background-color 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
@@ -1278,8 +1240,7 @@ div.chat div.chat-bar-wrapper div.send-button.disabled {
 
 @media screen and (prefers-color-scheme: dark) {
   div.chat div.chat-bar-wrapper div.send-button.disabled img.send-button-icon {
-    -webkit-filter: invert(0.75);
-            filter: invert(0.75);
+    filter: invert(0.75);
   }
 }
 
@@ -1292,14 +1253,12 @@ div.chat div.chat-bar-wrapper div.send-button.disabled {
 div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
   height: 25px;
   margin-bottom: 2.25px;
-  -webkit-filter: invert(1);
-          filter: invert(1);
+  filter: invert(1);
 }
 
 @media screen and (prefers-color-scheme: dark) {
   div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
-    -webkit-filter: invert(0);
-            filter: invert(0);
+    filter: invert(0);
   }
 }
 
@@ -1325,9 +1284,9 @@ div.chat div.chat-bar-wrapper div.send-button img.send-button-icon {
   div.chat {
     position: relative;
     width: 100%;
-    -webkit-box-flex: 1;
-            flex-grow: 1;
+    flex-grow: 1;
     border-left: none;
   }
 }
+
 /*# sourceMappingURL=borealis.css.map */
