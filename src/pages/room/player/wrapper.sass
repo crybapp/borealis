@@ -7,6 +7,7 @@ div.player-wrapper
 	bottom: $playerFooterHeight
 	width: $playerWidth
 
+	background: black
 	border-bottom: $primaryBorder
 
 	align-items: center
@@ -21,6 +22,36 @@ div.player-wrapper
 		align-items: center
 		justify-content: center
 
+		p.player-dev
+			position: absolute
+			color: white
+			background-color: rgba(0, 0, 0, 0.72157)
+
+			top: 0
+			left: 15px
+			width: fit-content
+			max-width: 90%
+
+			padding: 10px
+			text-align: left
+
+			font-family: monospace
+
+			z-index: 999
+			pointer-events: none
+
+		div.player-message-cover
+			position: absolute
+			display: flex
+			width: 100%
+			height: 100%
+			background-color: rgba(0, 0, 0, 0.75)
+
+			z-index: 500
+
+			align-items: center
+			justify-content: center
+
 		div.player-message
 			position: absolute
 
@@ -28,24 +59,36 @@ div.player-wrapper
 
 			color: white
 
+		canvas
+			position: absolute
+			pointer-events: none
+
+			max-width: 100%
+			max-height: 100%
+
+			z-index: 100
+
+			&:focus
+				outline: none
+
 		video
-			top: 50%
-			left: 50%
-
-			width: 100%
-			height: auto
-
 			max-width: 100%
 			max-height: 100%
 
 			&.is-placeholder
 				width: 100%
+				height: 100%
 
+				pointer-events: none
 				object-fit: cover
 
 			&:focus
 				outline: none
 
+			// thanks mobile very cool
+			@media only screen and (max-width: $mobileBreakpoint)
+				width: 100% !important
+				height: auto !important
 
 	@media screen and (prefers-color-scheme: dark)
 		border-bottom: $secondaryBorder

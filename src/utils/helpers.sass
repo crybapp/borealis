@@ -7,6 +7,16 @@
 	&.is-fullwidth
 		width: calc(100% - 3em)
 
+.is-centre, .is-center
+	@media only screen and (min-width: $mobileBreakpoint)
+		display: flex
+		align-items: center
+		justify-content: center
+
+.center
+	margin: 0 auto
+	text-align: center
+
 div.content.has-content
 	width: calc(100% - 12em)
 
@@ -31,8 +41,6 @@ p.disclaimer
 	margin: 0
 
 p.error
-	position: absolute
-
 	color: red
 	margin-bottom: 0
 
@@ -45,13 +53,40 @@ p.error
 	// Dark content support
 	color: black
 
-	img
+	img, svg
 		filter: invert(0) !important
+
+.is-error
+	background: red !important
 
 .is-disabled
 	cursor: not-allowed !important
 
 	opacity: 0.75
+
+.is-hoverable:not(.is-disabled)
+	cursor: pointer
+
+div.logo-small
+	width: 40px
+	height: 32px
+
+div.logo-big
+	width: 128px
+	height: 105px
+
+div.logo-mask
+	background: black
+	z-index: 9999
+
+	mask-repeat: round
+	// I'm sorry
+	mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4cHgiIGhlaWdodD0iMTA1cHgiIHZpZXdCb3g9IjAgMCAxMjggMTA1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIzLjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPjxwb2x5Z29uIGlkPSJSZWN0YW5nbGUiIHBvaW50cz0iNDMuMjcyNzI3MyAxMTYuMzMzMzMzIDQzLjI3MjcyNzMgNjkuNjY2NjY2NyAyMCA2OS42NjY2NjY3IDIwIDU4IDMxLjYzNjM2MzYgNTggMzEuNjM2MzYzNiA0Ni4zMzMzMzMzIDQzLjI3MjcyNzMgNDYuMzMzMzMzMyA0My4yNzI3MjczIDM0LjY2NjY2NjcgNTQuOTA5MDkwOSAzNC42NjY2NjY3IDU0LjkwOTA5MDkgMjMgMTEzLjA5MDkwOSAyMyAxMTMuMDkwOTA5IDM0LjY2NjY2NjcgMTI0LjcyNzI3MyAzNC42NjY2NjY3IDEyNC43MjcyNzMgNDYuMzMzMzMzMyAxMzYuMzYzNjM2IDQ2LjMzMzMzMzMgMTM2LjM2MzYzNiA1OCAxNDggNTggMTQ4IDY5LjY2NjY2NjcgMTM2LjM2MzYzNiA2OS42NjY2NjY3IDEyNC43MjcyNzMgNjkuNjY2NjY2NyAxMjQuNzI3MjczIDExNi4zMzMzMzMgMTEzLjA5MDkwOSAxMTYuMzMzMzMzIDExMy4wOTA5MDkgNTggNTQuOTA5MDkwOSA1OCA1NC45MDkwOTA5IDExNi4zMzMzMzMgNjYuNTQ1NDU0NSAxMTYuMzMzMzMzIDY2LjU0NTQ1NDUgODEuMzMzMzMzMyA4OS44MTgxODE4IDgxLjMzMzMzMzMgODkuODE4MTgxOCAxMTYuMzMzMzMzIDEyNC43MjcyNzMgMTE2LjMzMzMzMyAxMjQuNzI3MjczIDEyOCA0My4yNzI3MjczIDEyOCI+PC9wb2x5Z29uPjwvZz48L2c+PC9zdmc+')
+
+	transition: 0.2s all ease-in-out
+
+	@media screen and (prefers-color-scheme: dark)
+		background: white
 
 @keyframes loadingAnimation
 	0%
