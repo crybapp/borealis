@@ -1,0 +1,78 @@
+div.player
+	&.has-control
+		div.control-bar
+			display: none
+
+	&:not(.has-control)
+		&:hover
+			div.control-bar
+				bottom: 0
+				opacity: 1
+				pointer-events: all
+
+		div.control-bar
+			position: absolute
+
+			transition: $softTransition
+			background: linear-gradient(to bottom, #00000000, #000000a3)
+
+			left: 0
+			width: 100%
+
+			bottom: -20px
+			opacity: 0
+			pointer-events: none
+			height: 60px
+			width: 100%
+
+			div.control-inner
+				height: 40px
+				margin-top: 20px
+
+				display: flex
+				flex-direction: row
+				justify-content: space-between
+			
+				.fullscreen-toggle
+					margin: auto 20px
+
+				div.volume-controls
+					display: flex
+
+					align-items: center
+					justify-content: center
+
+					margin: 10px 20px
+
+					img.icon
+						margin-right: 10px
+
+				img.icon
+					cursor: pointer
+
+					// @media screen and (prefers-color-scheme: dark)
+					filter: invert(1)
+
+					div.volume-slider 
+						transform: translate(0, -300%)
+						margin: auto auto
+						height: 3px
+						background: white
+						-webkit-appearance: none
+						cursor: pointer
+
+				.volume-slider:focus 
+					outline: none
+
+				.volume-slider::-webkit-slider-thumb 
+					-webkit-appearance: none
+					width: 12px
+					height: 12px
+					border-radius: 50%
+					background: white
+
+				.volume-slider::-moz-range-thumb 
+					width: 12px
+					height: 12px
+					border-radius: 50%
+					background: white
