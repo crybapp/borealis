@@ -12,63 +12,19 @@ div.player-footer
 	overflow-x: auto
 	overflow-y: hidden
 
-	div.control-bar
-		display: flex
-		flex-direction: row
-		justify-content: space-between
-		height: 40px
-		width: 100%
-		margin: auto
-		
-		.fullscreen-toggle
-			margin: auto 20px
-
-		.volume-controls
-			width: 10%
-			margin: 10px 20px
-
-		.volume-slider 
-			transform: translate(0, -300%)
-			margin: auto 0
-			height: 3px
-			background: white
-			-webkit-appearance: none
-			cursor: pointer
-
-		.volume-slider:focus 
-			outline: none
-
-
-		.volume-slider::-webkit-slider-thumb 
-			-webkit-appearance: none
-			width: 12px
-			height: 12px
-			border-radius: 50%
-			background: white
-
-
-		.volume-slider::-moz-range-thumb 
-			width: 12px
-			height: 12px
-			border-radius: 50%
-			background: white
-		
-
-		img.icon
-			cursor: pointer
-			@media screen and (prefers-color-scheme: dark)
-				filter: invert(1)
-
 	div.user-icons
 		display: flex
 
 		width: fit-content
 
-		padding: 0px 40px 40px 40px 
+		padding: 40px 40px 40px 40px 
 		margin: auto
 
 		align-items: center
 		justify-content: stretch
+
+		.has-no-padding-top
+			padding-top: 0
 
 		div.user-icon
 			width: $userIconSize
