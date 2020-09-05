@@ -6,11 +6,10 @@ div.player-footer
 	width: $playerWidth
 	height: $playerFooterHeight
 
-	border-bottom: $primaryBorder
-
-	overflow: none
 	overflow-x: auto
 	overflow-y: hidden
+
+	z-index: 1000
 
 	div.control-bar
 		display: flex
@@ -19,52 +18,62 @@ div.player-footer
 		height: 40px
 		width: 100%
 		margin: auto
-		
-		.fullscreen-toggle
+
+		.toggles, .volume-controls
 			margin: auto 20px
 
-		.volume-controls
-			width: 10%
-			margin: 10px 20px
+		.toggles img.icon
+			margin-left: 10px
+			opacity: 1
 
-		.volume-slider 
-			transform: translate(0, -300%)
+			transition: all 0.1s
+
+			&:hover
+				opacity: 0.85
+
+		.volume-slider
+			margin-right: 10px
+			transform: translate(0, -215%)
 			margin: auto 0
 			height: 3px
 			background: white
 			-webkit-appearance: none
+			appearance: none
+			outline: none
 			cursor: pointer
 
-		.volume-slider:focus 
-			outline: none
-
-
-		.volume-slider::-webkit-slider-thumb 
+		.volume-slider::-webkit-slider-thumb
 			-webkit-appearance: none
 			width: 12px
 			height: 12px
 			border-radius: 50%
 			background: white
 
-
-		.volume-slider::-moz-range-thumb 
+		.volume-slider::-moz-range-thumb
 			width: 12px
 			height: 12px
 			border-radius: 50%
 			background: white
-		
 
 		img.icon
 			cursor: pointer
+			height: 16px
+
 			@media screen and (prefers-color-scheme: dark)
 				filter: invert(1)
+
+			&.keyboard
+				display: none
+
+				@media only screen and (max-width: $mobileBreakpoint)
+					display: inline
 
 	div.user-icons
 		display: flex
 
 		width: fit-content
 
-		padding: 0px 40px 40px 40px 
+		padding: 0px 40px 40px 40px
 		margin: auto
 
 		align-items: center
@@ -76,9 +85,20 @@ div.player-footer
 
 			border-radius: 50%
 
+			&.owner
+				box-shadow: 0 0 0 5px $ownerColor
+
+			&.admin
+				box-shadow: 0 0 0 5px $adminColor
+
+			&.subscriber
+				box-shadow: 0 0 0 5px $subscriberColor
+
+			&.team
+				box-shadow: 0 0 0 5px $teamColor
+
 			&.passable
 				cursor: pointer
-				box-shadow: 0 0 0 0px black
 
 				transition: box-shadow 0.2s ease-in-out
 
@@ -219,8 +239,6 @@ div.player-footer
 		div.invite-hint
 			height: fit-content
 
-			max-width: 20em
-
 			margin-left: .5em
 
 			h3.invite-hint-title
@@ -231,11 +249,26 @@ div.player-footer
 				margin: 0
 				margin-bottom: 0
 
+			span.hint
+				position: absolute
+				opacity: 0
+				visibility: hidden
+
+				transition: all 0.1s
+
+				&.visible
+					opacity: 1
+					visibility: visible
+					margin-left: 5px
+
 	@media screen and (prefers-color-scheme: dark)
-		border-bottom: $secondaryBorder
+		@media only screen and (max-width: $mobileBreakpoint)
+			border-bottom: $secondaryBorder
 
 	@media only screen and (max-width: $mobileBreakpoint)
 		position: relative
 
 		width: 100%
 		height: fit-content
+
+		border-bottom: $primaryBorder

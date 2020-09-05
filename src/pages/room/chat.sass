@@ -36,13 +36,9 @@ div.chat
 		bottom: 80px
 		width: calc(100% - 2em)
 
-		padding: 1.5em 1em
-		padding-bottom: 0
+		padding: 1.5em 1em 0
 
 		overflow-y: auto
-
-		&.users-are-typing
-			bottom: 100px
 
 		div.grouped-chat-messages
 			display: flex
@@ -52,18 +48,30 @@ div.chat
 				width: 50px
 				height: 50px
 
-				border-radius: 50%
+				border-radius: 25px
 
 				margin-right: 1.05em
 
-				&.has-controller
+				&.has-control
 					box-shadow: 0 0 0 3px $secondary
 
 					@media screen and (prefers-color-scheme: dark)
 						box-shadow: 0 0 0 3px $primary
 
+				&.owner
+					box-shadow: 0 0 0 3px $ownerColor
+
+				&.admin
+					box-shadow: 0 0 0 3px $adminColor
+
+				&.subscriber
+					box-shadow: 0 0 0 3px $subscriberColor
+
+				&.team
+					box-shadow: 0 0 0 3px $teamColor
+
 			div.chat-messages
-				width: -webkit-fill-available
+				width: 100%
 
 				div.chat-message
 					display: flex
@@ -74,13 +82,14 @@ div.chat
 						pointer-events: none
 
 					p.chat-message-content
-						margin: 0
-						margin-bottom: 0.65em
+						margin: 0 0 0.65em
+
+						word-break: break-word
 
 						img.chat-message-emoji
 							width: 1em
 							height: 1em
-							
+
 							margin: .05em .1em
 							vertical-align: -.1em
 
@@ -93,7 +102,9 @@ div.chat
 					div.chat-message-options
 						position: absolute
 
-						right: 0px
+						background: rgba(0, 0, 0, 0.75)
+
+						right: 0
 
 						margin-right: 1.5em
 
@@ -101,7 +112,7 @@ div.chat
 
 						img.chat-message-option
 							cursor: pointer
-							opacity: 0.25
+							opacity: 0.5
 
 							transition: all 0.1s ease-in-out
 
@@ -228,5 +239,5 @@ div.chat
 
 		width: 100%
 		flex-grow: 1
-		
+
 		border-left: none

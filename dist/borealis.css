@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media screen and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: light) {
   .light {
     display: block;
   }
@@ -12,7 +12,7 @@
   display: block;
 }
 
-@media screen and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: light) {
   .dark {
     display: none;
   }
@@ -28,6 +28,22 @@
 
 .has-content.is-fullwidth {
   width: calc(100% - 3em);
+}
+
+@media only screen and (min-width: 768px) {
+  .is-centre, .is-center {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
 }
 
 div.content.has-content {
@@ -56,7 +72,6 @@ p.disclaimer {
 }
 
 p.error {
-  position: absolute;
   color: red;
   margin-bottom: 0;
 }
@@ -69,14 +84,49 @@ p.error {
   color: black;
 }
 
-.is-loading img {
+.is-loading img, .is-loading svg {
   -webkit-filter: invert(0) !important;
           filter: invert(0) !important;
+}
+
+.is-error {
+  background: red !important;
 }
 
 .is-disabled {
   cursor: not-allowed !important;
   opacity: 0.75;
+}
+
+.is-hoverable:not(.is-disabled) {
+  cursor: pointer;
+}
+
+div.logo-small {
+  width: 40px;
+  height: 32px;
+}
+
+div.logo-big {
+  width: 128px;
+  height: 105px;
+}
+
+div.logo-mask {
+  background: black;
+  z-index: 9999;
+  -webkit-mask-repeat: round;
+          mask-repeat: round;
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4cHgiIGhlaWdodD0iMTA1cHgiIHZpZXdCb3g9IjAgMCAxMjggMTA1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIzLjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPjxwb2x5Z29uIGlkPSJSZWN0YW5nbGUiIHBvaW50cz0iNDMuMjcyNzI3MyAxMTYuMzMzMzMzIDQzLjI3MjcyNzMgNjkuNjY2NjY2NyAyMCA2OS42NjY2NjY3IDIwIDU4IDMxLjYzNjM2MzYgNTggMzEuNjM2MzYzNiA0Ni4zMzMzMzMzIDQzLjI3MjcyNzMgNDYuMzMzMzMzMyA0My4yNzI3MjczIDM0LjY2NjY2NjcgNTQuOTA5MDkwOSAzNC42NjY2NjY3IDU0LjkwOTA5MDkgMjMgMTEzLjA5MDkwOSAyMyAxMTMuMDkwOTA5IDM0LjY2NjY2NjcgMTI0LjcyNzI3MyAzNC42NjY2NjY3IDEyNC43MjcyNzMgNDYuMzMzMzMzMyAxMzYuMzYzNjM2IDQ2LjMzMzMzMzMgMTM2LjM2MzYzNiA1OCAxNDggNTggMTQ4IDY5LjY2NjY2NjcgMTM2LjM2MzYzNiA2OS42NjY2NjY3IDEyNC43MjcyNzMgNjkuNjY2NjY2NyAxMjQuNzI3MjczIDExNi4zMzMzMzMgMTEzLjA5MDkwOSAxMTYuMzMzMzMzIDExMy4wOTA5MDkgNTggNTQuOTA5MDkwOSA1OCA1NC45MDkwOTA5IDExNi4zMzMzMzMgNjYuNTQ1NDU0NSAxMTYuMzMzMzMzIDY2LjU0NTQ1NDUgODEuMzMzMzMzMyA4OS44MTgxODE4IDgxLjMzMzMzMzMgODkuODE4MTgxOCAxMTYuMzMzMzMzIDEyNC43MjcyNzMgMTE2LjMzMzMzMyAxMjQuNzI3MjczIDEyOCA0My4yNzI3MjczIDEyOCI+PC9wb2x5Z29uPjwvZz48L2c+PC9zdmc+");
+          mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4cHgiIGhlaWdodD0iMTA1cHgiIHZpZXdCb3g9IjAgMCAxMjggMTA1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjAwMDAwMCwgLTIzLjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPjxwb2x5Z29uIGlkPSJSZWN0YW5nbGUiIHBvaW50cz0iNDMuMjcyNzI3MyAxMTYuMzMzMzMzIDQzLjI3MjcyNzMgNjkuNjY2NjY2NyAyMCA2OS42NjY2NjY3IDIwIDU4IDMxLjYzNjM2MzYgNTggMzEuNjM2MzYzNiA0Ni4zMzMzMzMzIDQzLjI3MjcyNzMgNDYuMzMzMzMzMyA0My4yNzI3MjczIDM0LjY2NjY2NjcgNTQuOTA5MDkwOSAzNC42NjY2NjY3IDU0LjkwOTA5MDkgMjMgMTEzLjA5MDkwOSAyMyAxMTMuMDkwOTA5IDM0LjY2NjY2NjcgMTI0LjcyNzI3MyAzNC42NjY2NjY3IDEyNC43MjcyNzMgNDYuMzMzMzMzMyAxMzYuMzYzNjM2IDQ2LjMzMzMzMzMgMTM2LjM2MzYzNiA1OCAxNDggNTggMTQ4IDY5LjY2NjY2NjcgMTM2LjM2MzYzNiA2OS42NjY2NjY3IDEyNC43MjcyNzMgNjkuNjY2NjY2NyAxMjQuNzI3MjczIDExNi4zMzMzMzMgMTEzLjA5MDkwOSAxMTYuMzMzMzMzIDExMy4wOTA5MDkgNTggNTQuOTA5MDkwOSA1OCA1NC45MDkwOTA5IDExNi4zMzMzMzMgNjYuNTQ1NDU0NSAxMTYuMzMzMzMzIDY2LjU0NTQ1NDUgODEuMzMzMzMzMyA4OS44MTgxODE4IDgxLjMzMzMzMzMgODkuODE4MTgxOCAxMTYuMzMzMzMzIDEyNC43MjcyNzMgMTE2LjMzMzMzMyAxMjQuNzI3MjczIDEyOCA0My4yNzI3MjczIDEyOCI+PC9wb2x5Z29uPjwvZz48L2c+PC9zdmc+");
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.logo-mask {
+    background: white;
+  }
 }
 
 @-webkit-keyframes loadingAnimation {
@@ -151,6 +201,77 @@ p.description {
   }
 }
 
+/* Have on mind we use Perfect Scrollbar, and these styles are for it */
+.ps {
+  overflow: hidden !important;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+}
+
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+
+.ps__rail-x, .ps__rail-y {
+  position: absolute;
+  display: none;
+  opacity: 0.2;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+}
+
+.ps__rail-x {
+  height: 12px;
+  bottom: 0;
+}
+
+.ps__rail-y {
+  width: 12px;
+  right: 0;
+}
+
+.ps__thumb-x, .ps__thumb-y {
+  position: absolute;
+  background-color: #0e0e0e;
+  border-radius: 6px;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .ps__thumb-x, .ps__thumb-y {
+    background-color: #a1a1a1;
+  }
+}
+
+.ps__thumb-x {
+  height: 8px;
+  bottom: 2px;
+}
+
+.ps__thumb-y {
+  width: 8px;
+  right: 2px;
+}
+
+.ps:hover > .ps__rail-x, .ps:hover > .ps__rail-y,
+.ps--focus > .ps__rail-x, .ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x, .ps--scrolling-y > .ps__rail-y {
+  opacity: 0.5;
+}
+
+.ps--active-x > .ps__rail-x, .ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: transparent;
+}
+
 html, body {
   background-color: white;
 }
@@ -182,12 +303,17 @@ a:not(.is-wrapper):hover {
   }
 }
 
-img:not(.draggable) {
+img:not(.draggable), svg:not(.draggable) {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 div.content {
@@ -196,17 +322,6 @@ div.content {
   left: 0;
   bottom: 0;
   width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  div.content.is-centre, div.content.is-center {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-            justify-content: center;
-  }
 }
 
 div.content.no-header {
@@ -504,7 +619,7 @@ div.menu-wrapper.visible div.menu-cover {
 }
 
 @media only screen and (max-width: 768px) {
-  div.in-room, div.no-room, div.room-join, div.room-create {
+  div.home {
     margin: 1.5em 2em;
   }
 }
@@ -653,6 +768,12 @@ button.button:not(.is-disabled).has-theme.is-discord-theme:hover:not(.is-disable
   }
 }
 
+div.auth-images img.profile-image {
+  width: 128px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
 div.invite-wrapper {
   display: -webkit-box;
   display: flex;
@@ -721,18 +842,18 @@ div.landing div.left {
   left: 0;
 }
 
-div.landing div.left div.center {
+div.landing div.left div.centre {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 60%;
 }
 
-div.landing div.left div.center h1.title {
+div.landing div.left div.centre h1.title {
   margin-top: 0;
 }
 
-div.landing div.left div.center img.logo {
+div.landing div.left div.centre img.logo {
   height: 30px;
   margin-bottom: .5em;
 }
@@ -764,6 +885,78 @@ div.landing div.right iframe.video {
   }
 }
 
+div.modal-wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  -webkit-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+div.modal-wrapper.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+div.modal-wrapper.cover {
+  z-index: 9996;
+}
+
+div.modal {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1.5em;
+  z-index: 9999;
+  color: black;
+  background-color: white;
+  border: rgba(112, 128, 144, 0.25) 1px solid;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(112, 128, 144, 0.25);
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  div.modal {
+    color: white;
+    background-color: black;
+  }
+}
+
+div.modal-wrapper.cover div.modal {
+  border: 0;
+}
+
+div.modal-wrapper:not(.visible) div.modal {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+div.modal-cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000bf;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 9998;
+}
+
 div.player-wrapper {
   position: absolute;
   display: -webkit-box;
@@ -771,7 +964,8 @@ div.player-wrapper {
   top: 0;
   left: 0;
   bottom: 180px;
-  width: calc(100% - 341px);
+  width: calc(100% - 27%);
+  background: black;
   border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   -webkit-box-align: center;
           align-items: center;
@@ -790,29 +984,77 @@ div.player-wrapper div.player {
           justify-content: center;
 }
 
+div.player-wrapper div.player p.player-dev {
+  position: absolute;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.72157);
+  top: 0;
+  left: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 90%;
+  padding: 10px;
+  text-align: left;
+  font-family: monospace;
+  z-index: 999;
+  pointer-events: none;
+}
+
+div.player-wrapper div.player div.player-message-cover {
+  position: absolute;
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 500;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
 div.player-wrapper div.player div.player-message {
   position: absolute;
   max-width: 70%;
   color: white;
 }
 
+div.player-wrapper div.player canvas {
+  position: absolute;
+  pointer-events: none;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 100;
+}
+
+div.player-wrapper div.player canvas:focus {
+  outline: none;
+}
+
 div.player-wrapper div.player video {
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: auto;
   max-width: 100%;
   max-height: 100%;
 }
 
 div.player-wrapper div.player video.is-placeholder {
   width: 100%;
+  height: 100%;
+  pointer-events: none;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 div.player-wrapper div.player video:focus {
   outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-wrapper div.player video {
+    width: 100% !important;
+    height: auto !important;
+  }
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -833,12 +1075,11 @@ div.player-footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: calc(100% - 341px);
+  width: calc(100% - 27%);
   height: 180px;
-  border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
-  overflow: none;
   overflow-x: auto;
   overflow-y: hidden;
+  z-index: 1000;
 }
 
 div.player-footer div.control-bar {
@@ -854,27 +1095,33 @@ div.player-footer div.control-bar {
   margin: auto;
 }
 
-div.player-footer div.control-bar .fullscreen-toggle {
+div.player-footer div.control-bar .toggles, div.player-footer div.control-bar .volume-controls {
   margin: auto 20px;
 }
 
-div.player-footer div.control-bar .volume-controls {
-  width: 10%;
-  margin: 10px 20px;
+div.player-footer div.control-bar .toggles img.icon {
+  margin-left: 10px;
+  opacity: 1;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+div.player-footer div.control-bar .toggles img.icon:hover {
+  opacity: 0.85;
 }
 
 div.player-footer div.control-bar .volume-slider {
-  -webkit-transform: translate(0, -300%);
-          transform: translate(0, -300%);
+  margin-right: 10px;
+  -webkit-transform: translate(0, -215%);
+          transform: translate(0, -215%);
   margin: auto 0;
   height: 3px;
   background: white;
   -webkit-appearance: none;
-  cursor: pointer;
-}
-
-div.player-footer div.control-bar .volume-slider:focus {
+  -moz-appearance: none;
+       appearance: none;
   outline: none;
+  cursor: pointer;
 }
 
 div.player-footer div.control-bar .volume-slider::-webkit-slider-thumb {
@@ -894,12 +1141,23 @@ div.player-footer div.control-bar .volume-slider::-moz-range-thumb {
 
 div.player-footer div.control-bar img.icon {
   cursor: pointer;
+  height: 16px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
   div.player-footer div.control-bar img.icon {
     -webkit-filter: invert(1);
             filter: invert(1);
+  }
+}
+
+div.player-footer div.control-bar img.icon.keyboard {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  div.player-footer div.control-bar img.icon.keyboard {
+    display: inline;
   }
 }
 
@@ -923,9 +1181,24 @@ div.player-footer div.user-icons div.user-icon {
   border-radius: 50%;
 }
 
+div.player-footer div.user-icons div.user-icon.owner {
+  box-shadow: 0 0 0 5px #f5ee35;
+}
+
+div.player-footer div.user-icons div.user-icon.admin {
+  box-shadow: 0 0 0 5px #e74c3c;
+}
+
+div.player-footer div.user-icons div.user-icon.subscriber {
+  box-shadow: 0 0 0 5px #f86754;
+}
+
+div.player-footer div.user-icons div.user-icon.team {
+  box-shadow: 0 0 0 5px #73b3f7;
+}
+
 div.player-footer div.user-icons div.user-icon.passable {
   cursor: pointer;
-  box-shadow: 0 0 0 0px black;
   -webkit-transition: box-shadow 0.2s ease-in-out;
   transition: box-shadow 0.2s ease-in-out;
 }
@@ -1091,7 +1364,6 @@ div.player-footer div.user-icons div.invite-hint {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  max-width: 20em;
   margin-left: .5em;
 }
 
@@ -1105,7 +1377,21 @@ div.player-footer div.user-icons div.invite-hint p.invite-hint-subtitle {
   margin-bottom: 0;
 }
 
-@media screen and (prefers-color-scheme: dark) {
+div.player-footer div.user-icons div.invite-hint span.hint {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+div.player-footer div.user-icons div.invite-hint span.hint.visible {
+  opacity: 1;
+  visibility: visible;
+  margin-left: 5px;
+}
+
+@media only screen and (prefers-color-scheme: dark) and (max-width: 768px) {
   div.player-footer {
     border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   }
@@ -1118,6 +1404,7 @@ div.player-footer div.user-icons div.invite-hint p.invite-hint-subtitle {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    border-bottom: rgba(112, 128, 144, 0.25) 1px solid;
   }
 }
 
@@ -1134,7 +1421,7 @@ div.chat {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 340px;
+  width: 27%;
   border-left: rgba(112, 128, 144, 0.25) 1px solid;
 }
 
@@ -1164,13 +1451,8 @@ div.chat div.grouped-chat-messages-wrapper {
   top: 0;
   bottom: 80px;
   width: calc(100% - 2em);
-  padding: 1.5em 1em;
-  padding-bottom: 0;
+  padding: 1.5em 1em 0;
   overflow-y: auto;
-}
-
-div.chat div.grouped-chat-messages-wrapper.users-are-typing {
-  bottom: 100px;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages {
@@ -1182,22 +1464,38 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages {
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 25px;
   margin-right: 1.05em;
 }
 
-div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.has-controller {
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.has-control {
   box-shadow: 0 0 0 3px black;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.has-controller {
+  div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.has-control {
     box-shadow: 0 0 0 3px white;
   }
 }
 
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.owner {
+  box-shadow: 0 0 0 3px #f5ee35;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.admin {
+  box-shadow: 0 0 0 3px #e74c3c;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.subscriber {
+  box-shadow: 0 0 0 3px #f86754;
+}
+
+div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages img.chat-messages-author-avatar.team {
+  box-shadow: 0 0 0 3px #73b3f7;
+}
+
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages {
-  width: -webkit-fill-available;
+  width: 100%;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message {
@@ -1211,8 +1509,8 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-me
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content {
-  margin: 0;
-  margin-bottom: 0.65em;
+  margin: 0 0 0.65em;
+  word-break: break-word;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message p.chat-message-content img.chat-message-emoji {
@@ -1232,14 +1530,15 @@ div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-me
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options {
   position: absolute;
-  right: 0px;
+  background: rgba(0, 0, 0, 0.75);
+  right: 0;
   margin-right: 1.5em;
   opacity: 0;
 }
 
 div.chat div.grouped-chat-messages-wrapper div.grouped-chat-messages div.chat-messages div.chat-message div.chat-message-options img.chat-message-option {
   cursor: pointer;
-  opacity: 0.25;
+  opacity: 0.5;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
