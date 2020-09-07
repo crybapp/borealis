@@ -1,40 +1,40 @@
 {
-	"name": "@cryb/borealis",
-	"version": "1.0.7",
-	"description": "The official CSS framework for Cryb",
-	"repository": "https://github.com/crybapp/borealis",
-	"author": "William Gibson <william@tired.io>",
-	"license": "MIT",
-	"main": "dist/borealis.min.css",
-	"unpkg": "dist/borealis.min.css",
-	"style": "borealis/css/borealis.min.css",
-	"scripts": {
-		"dev": "nodemon -e sass --ignore dist/ --exec \"yarn build-sass\"",
-		"build": "yarn build-clean && yarn build-sass && yarn build-autoprefix && yarn build-cleancss",
-		"build-sass": "node-sass --output-style expanded --source-map true src/_all.sass dist/borealis.css",
-		"build-autoprefix": "postcss --use autoprefixer --map false --output dist/borealis.css dist/borealis.css",
-		"build-cleancss": "cleancss -o dist/borealis.min.css dist/borealis.css",
-		"build-clean": "rimraf dist",
-		"deploy": "bash scripts/deploy.sh"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "yarn build"
-		}
-	},
-	"devDependencies": {
-		"autoprefixer": "^9.6.1",
-		"clean-css-cli": "^4.3.0",
-		"husky": "^3.1.0",
-		"node-sass": "^4.12.0",
-		"nodemon": "^2.0.2",
-		"postcss-cli": "^6.1.3",
-		"rimraf": "^2.7.1"
-	},
-	"files": [
-		"src",
-		"dist",
-		"LICENSE",
-		"README.md"
-	]
+  "name": "@cryb/borealis",
+  "version": "1.0.7",
+  "description": "The official CSS framework for Cryb",
+  "repository": "https://github.com/crybapp/borealis.git",
+  "author": "JeDaYoshi <hi@jeda.im>",
+  "license": "MIT",
+  "main": "dist/borealis.min.css",
+  "unpkg": "dist/borealis.min.css",
+  "style": "borealis/css/borealis.min.css",
+  "scripts": {
+    "dev": "nodemon -e sass --ignore dist/ --exec \"yarn build-sass\"",
+    "build": "yarn build-clean && yarn build-sass && yarn build-autoprefix && yarn build-cleancss",
+    "build-sass": "node-sass --output-style expanded --source-map true src/_all.sass dist/borealis.css",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output dist/borealis.css dist/borealis.css",
+    "build-cleancss": "cleancss -o dist/borealis.min.css dist/borealis.css",
+    "build-clean": "rimraf dist",
+    "deploy": "bash scripts/deploy.sh"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build"
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "clean-css-cli": "^4.3.0",
+    "husky": "^3.1.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^2.0.2",
+    "postcss-cli": "^6.1.3",
+    "rimraf": "^2.7.1"
+  },
+  "files": [
+    "src",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ]
 }
